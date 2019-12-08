@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.project.iwdproject.MainActivity;
 import com.example.project.iwdproject.R;
 import com.mchsdk.paysdk.mylibrary.BaseActivity;
 
@@ -58,6 +59,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.user_agreement:
                 break;
             case R.id.ll_login:
+                jumpToActivity(MainActivity.class);
                 break;
             case R.id.tv_register:   //注册
                 jumpToActivity(RegisterActivity.class);

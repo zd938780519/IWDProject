@@ -1,18 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+
+    <com.example.project.iwdproject.View.CustomViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <!--<View style="@style/Line"/>-->
+
+
+    <com.yinglan.alphatabs.AlphaTabsIndicator
+        android:id="@+id/alphaIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/color_172031"
+        >
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_common_layout_trans"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/icon_wxz_sy"
+            app:tabIconSelected="@mipmap/icon_xz_sy"
+            app:tabText="首页"
+            app:tabTextSize="10sp"
+            app:textColorNormal="@color/white"
+            app:textColorSelected="@color/color_6362EB"
+            />
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_common_layout_trans"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/icon_wxz_zp"
+            app:tabIconSelected="@mipmap/icon_xz_zp"
+            app:tabText="租赁"
+            app:tabTextSize="10sp"
+            app:textColorNormal="@color/white"
+            app:textColorSelected="@color/color_6362EB"
+            />
+
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_common_layout_trans"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/icon_wxz_fx"
+            app:tabIconSelected="@mipmap/icon_xz_fx"
+            app:tabText="发现"
+            app:tabTextSize="10sp"
+            app:textColorNormal="@color/white"
+            app:textColorSelected="@color/color_6362EB"
+        />
+
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_common_layout_trans"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/icon_wxz_wd"
+            app:tabIconSelected="@mipmap/icon_xz_wd"
+            app:tabText="我的"
+            app:tabTextSize="10sp"
+            app:textColorNormal="@color/white"
+            app:textColorSelected="@color/color_6362EB"
+            />
+
+
+    </com.yinglan.alphatabs.AlphaTabsIndicator>
+
+
+
+
+
+
+
+
+
+
+
+    <!--<include layout="@layout/include_toolbar"/>-->
+
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recycle_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="@color/color_131e31">-->
+
+
+        <!--<com.example.project.iwdproject.widget.BannerLayout-->
+            <!--android:id="@+id/banner"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="140dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--app:layout_scrollFlags="scroll|enterAlways"-->
+            <!--app:autoPlayDuration="5000"-->
+            <!--app:defaultImage="@mipmap/banner_2"-->
+            <!--android:layout_marginLeft="@dimen/item_offset_10dp"-->
+            <!--android:layout_marginRight="@dimen/item_offset_10dp"-->
+            <!--app:indicatorMargin="10dp"-->
+            <!--app:indicatorPosition="centerBottom"-->
+            <!--app:indicatorShape="oval"-->
+            <!--app:indicatorSpace="3dp"-->
+            <!--app:scrollDuration="900"-->
+            <!--app:selectedIndicatorColor="?attr/colorPrimary"-->
+            <!--app:selectedIndicatorHeight="6dp"-->
+            <!--app:selectedIndicatorWidth="6dp"-->
+            <!--app:unSelectedIndicatorColor="#99ffffff"-->
+            <!--app:unSelectedIndicatorHeight="6dp"-->
+            <!--app:unSelectedIndicatorWidth="6dp" />-->
+
+
+    <!--</LinearLayout>-->
+
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/item_offset_28dp"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:background="@color/color_131e31">-->
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/item_offset_15dp"-->
+            <!--android:background="@mipmap/icon_gg_1"/>-->
+
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="USpace IWD无人机信息采集租赁开始啦！"-->
+            <!--android:layout_marginLeft="@dimen/item_offset_8dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/item_offset_11sp" />-->
+    <!--</LinearLayout>-->
+
+
+
+
+
+
+</LinearLayout>
