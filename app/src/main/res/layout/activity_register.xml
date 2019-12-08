@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_40dp">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_back"
+                    android:layout_width="@dimen/item_offset_40dp"
+                    android:layout_height="@dimen/item_offset_40dp"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/nav_back_2"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机注册"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/item_offset_37dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:textSize="@dimen/item_offset_23dp" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_45dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中国大陆(+86)"
+                    android:layout_marginLeft="@dimen/item_offset_37dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_16sp" />
+
+            </LinearLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp"
+                android:background="@color/color_6362EB"/>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_40dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center_vertical">
+
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="手机号"
+                    android:inputType="phone"
+                    android:layout_marginLeft="@dimen/item_offset_37dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_16sp"
+                    android:background="@null"/>
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp"
+                android:background="@color/color_6362EB"/>
+
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_40dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center_vertical">
+
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="密码"
+                    android:layout_marginRight="@dimen/item_offset_70dp"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="@dimen/item_offset_37dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_16sp"
+                    android:background="@null"/>
+
+                <ImageView
+                    android:id="@+id/iv_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/item_offset_37dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/icon_zy_1"/>
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp"
+                android:background="@color/color_6362EB"/>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_40dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center_vertical">
+
+
+                <EditText
+                    android:id="@+id/et_nextpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/item_offset_70dp"
+                    android:hint="确认密码"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="@dimen/item_offset_37dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_16sp"
+                    android:background="@null"/>
+
+
+
+                <ImageView
+                    android:id="@+id/iv_showt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/item_offset_37dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/icon_by_1"/>
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp"
+                android:background="@color/color_6362EB"/>
+
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_40dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center_vertical">
+
+
+                <EditText
+                    android:id="@+id/et_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/item_offset_100dp"
+                    android:hint="验证码"
+                    android:inputType="phone"
+                    android:layout_marginLeft="@dimen/item_offset_37dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_16sp"
+                    android:background="@null"/>
+
+
+
+
+                <TextView
+                    android:id="@+id/tv_setcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="获取验证码"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/item_offset_37dp"
+                    android:textColor="@color/color_6362EB"
+                    android:textSize="@dimen/item_offset_13sp" />
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp"
+                android:background="@color/color_6362EB"/>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_40dp"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center_vertical">
+
+
+                <EditText
+                    android:id="@+id/invitation_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="邀请码(必填)"
+                    android:layout_marginRight="@dimen/item_offset_37dp"
+                    android:inputType="phone"
+                    android:layout_marginLeft="@dimen/item_offset_37dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_16sp"
+                    android:background="@null"/>
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp"
+                android:background="@color/color_6362EB"/>
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/CustomCheckBoxTheme"
+                   />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我以阅读并同意"
+                    android:layout_marginLeft="@dimen/item_offset_6dp"
+                    android:textColor="@color/color_888888"
+                    android:textSize="@dimen/item_offset_13sp"
+                    />
+
+                <TextView
+                    android:id="@+id/user_agreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 用户协议"
+                    android:textColor="@color/color_6362EB"
+                    android:textSize="@dimen/item_offset_13sp" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_45dp"
+                android:background="@drawable/shape_btn_blue"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="@dimen/item_offset_20dp"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/item_offset_36dp"
+                android:layout_marginRight="@dimen/item_offset_36dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/item_offset_16sp"
+                    android:textColor="@color/white"
+                    android:text="注册"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

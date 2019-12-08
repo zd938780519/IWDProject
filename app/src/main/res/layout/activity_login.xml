@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手机登录"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/item_offset_37dp"
+        android:layout_marginTop="@dimen/item_offset_60dp"
+        android:textSize="@dimen/item_offset_23dp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_45dp"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中国大陆(+86)"
+            android:layout_marginLeft="@dimen/item_offset_37dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp" />
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="@dimen/item_offset_36dp"
+        android:layout_marginRight="@dimen/item_offset_36dp"
+        android:background="@color/color_6362EB"/>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_40dp"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:gravity="center_vertical">
+
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="手机号码"
+            android:layout_marginRight="@dimen/item_offset_37dp"
+            android:inputType="phone"
+            android:layout_marginLeft="@dimen/item_offset_37dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp"
+            android:background="@null"/>
+
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="@dimen/item_offset_36dp"
+        android:layout_marginRight="@dimen/item_offset_36dp"
+        android:background="@color/color_6362EB"/>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_40dp"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:gravity="center_vertical">
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="密码"
+            android:layout_marginRight="@dimen/item_offset_70dp"
+            android:inputType="textPassword"
+            android:layout_marginLeft="@dimen/item_offset_37dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp"
+            android:background="@null"/>
+
+        <ImageView
+            android:id="@+id/iv_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/item_offset_37dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_zy_1"/>
+
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="@dimen/item_offset_36dp"
+        android:layout_marginRight="@dimen/item_offset_36dp"
+        android:background="@color/color_6362EB"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/item_offset_36dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CustomCheckBoxTheme"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_6dp"
+            android:text="登录"
+            android:textColor="@color/color_888888"
+            android:textSize="@dimen/item_offset_13sp"
+            />
+
+        <TextView
+            android:id="@+id/user_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" IWD租赁平台账号"
+            android:textColor="@color/color_6362EB"
+            android:textSize="@dimen/item_offset_13sp" />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_45dp"
+        android:background="@drawable/shape_btn_blue"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="@dimen/item_offset_20dp"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/item_offset_36dp"
+        android:layout_marginRight="@dimen/item_offset_36dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_offset_16sp"
+            android:textColor="@color/white"
+            android:text="登录"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_forgetpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_offset_37dp"
+        android:text="忘记密码？"
+        android:textColor="@color/color_6362EB"
+        android:textSize="@dimen/item_offset_14sp" />
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/item_offset_37dp"
+       android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/item_offset_25dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="还没有账号？"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_14sp" />
+
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="去注册"
+            android:textColor="@color/color_6362EB"
+            android:textSize="@dimen/item_offset_14sp" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

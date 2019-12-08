@@ -8,4 +8,30 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Light" parent="AppTheme.Light.Base" />
+
+    <!-- Customize your theme here. -->
+    <style name="AppTheme.Light.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_172031</item>
+        <item name="colorPrimaryDark">@color/color_172031</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:windowBackground">@color/color_172031</item>
+        <item name="android:textColorHint">@color/themeTextInputLayout_color</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--<binder_preferential_notice name="android:windowFullscreen">true</binder_preferential_notice>-->
+    </style>
+
+
+
+    <style name="CustomCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
 </resources>
