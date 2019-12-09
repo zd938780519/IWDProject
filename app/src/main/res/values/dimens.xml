@@ -93,6 +93,7 @@
     <dimen name="item_offset_46dp">46dp</dimen>
     <dimen name="item_offset_48dp">48dp</dimen>
     <dimen name="item_offset_50dp">50dp</dimen>
+    <dimen name="item_offset_54dp">54dp</dimen>
     <dimen name="item_offset_55dp">55dp</dimen>
     <dimen name="item_offset_53dp">53dp</dimen>
     <dimen name="item_offset_57dp">57dp</dimen>

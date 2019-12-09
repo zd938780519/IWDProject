@@ -14,6 +14,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/item_offset_30dp"
             android:layout_height="@dimen/item_offset_30dp">
             <TextView
                 android:layout_width="wrap_content"
@@ -22,7 +23,7 @@
                 android:layout_marginLeft="@dimen/item_offset_15dp"
                 android:text="IWD无人机租赁"
                 android:textColor="@color/white"
-                android:textSize="@dimen/item_offset_10sp" />
+                android:textSize="@dimen/item_offset_20sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -35,7 +36,202 @@
         </RelativeLayout>
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/item_offset_28dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的资产 (USDT)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_12sp" />
+
+            <ImageView
+                android:id="@+id/iv_yanjing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_offset_6dp"
+                android:background="@mipmap/icon_dy_10"/>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1254.20"
+            android:layout_marginTop="@dimen/item_offset_18dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_17sp" />
+
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="U Space IWD"
+            android:layout_marginLeft="@dimen/item_offset_16dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/color_131e31">
+        
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/item_offset_9dp"
+            android:layout_marginBottom="@dimen/item_offset_20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@mipmap/img_sfk_14"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_16dp"
+                android:text="收付款码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_16sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/item_offset_9dp"
+            android:layout_marginBottom="@dimen/item_offset_20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/img_zpjh_15"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_16dp"
+                android:text="租赁计划"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_16sp" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/item_offset_9dp"
+            android:layout_marginBottom="@dimen/item_offset_20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/img_wdsy_16"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_16dp"
+                android:text="我的收益"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_50dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资产"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="资产折合(USDT)"
+
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_11sp" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="≈1.21"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_13sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </LinearLayout>

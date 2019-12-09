@@ -11,6 +11,7 @@ import com.example.project.iwdproject.Fragment.FindFragment;
 import com.example.project.iwdproject.Fragment.HomePageFragment;
 import com.example.project.iwdproject.Fragment.LeaseFragment;
 import com.example.project.iwdproject.Fragment.SelfFragment;
+import com.example.project.iwdproject.Utils.EyesUtils;
 import com.example.project.iwdproject.View.CustomViewPager;
 import com.mchsdk.paysdk.mylibrary.BaseActivity;
 import com.yinglan.alphatabs.AlphaTabsIndicator;
@@ -29,12 +30,15 @@ public class MainActivity extends BaseActivity {
     AlphaTabsIndicator alphaIndicator;
 
     private String[] titles = {"首页", "租赁", "发现", "我的"};
+    private MainActivity instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        instance = this;
         ButterKnife.bind(this);
+        EyesUtils.setImmersionStateMode(instance);  //实现沉浸
         initView();
     }
 

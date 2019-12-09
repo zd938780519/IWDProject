@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_46dp"
+        android:layout_marginTop="@dimen/item_offset_1dp"
+        android:background="@color/color_131e31">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_11dp"
+            android:background="@mipmap/img_avatar_10"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IWD"
+            android:layout_marginLeft="@dimen/item_offset_5dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_15sp" />
+
+
+
+        <TextView
+            android:layout_toLeftOf="@+id/tv_secoundprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/item_offset_8dp"
+            android:text="总市值"
+            android:textColor="@color/color_888888"
+            android:textSize="@dimen/item_offset_13sp" />
+
+
+        <TextView
+            android:id="@+id/tv_secoundprice"
+            android:layout_toLeftOf="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/item_offset_6dp"
+            android:text="$1.21"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_13sp" />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/item_offset_11dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_jr_13"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_54dp"
+            android:layout_marginBottom="@dimen/item_offset_12dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/shape_btn_black"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="数量"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.21254875"
+                android:textColor="@color/color_f3f3f3"
+                android:layout_marginTop="@dimen/item_offset_5dp"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_54dp"
+            android:background="@drawable/shape_btn_black"
+            android:layout_marginBottom="@dimen/item_offset_12dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最新价"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_newprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$1.2145"
+                android:layout_marginTop="@dimen/item_offset_5dp"
+                android:textColor="@color/color_f3f3f3"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_54dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/shape_btn_black"
+            android:layout_marginBottom="@dimen/item_offset_12dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="涨跌幅"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_zenfu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_5dp"
+                android:text="+4.00%"
+                android:textColor="@color/color_0CD71F"
+                android:textSize="@dimen/item_offset_13sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="@dimen/item_offset_9dp"
+        android:layout_marginRight="@dimen/item_offset_9dp"
+        android:background="@color/color_888888"/>
+
+</LinearLayout>

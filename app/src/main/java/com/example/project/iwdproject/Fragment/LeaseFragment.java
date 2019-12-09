@@ -58,7 +58,6 @@ public class LeaseFragment extends BaseFragment {
 
     private OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener = new OnRecyclerViewItemDeClickListener() {
 
-
         @Override
         public void onRecyclerViewItemClicked(int position, RecyclerView.ViewHolder viewHolder) {
 
