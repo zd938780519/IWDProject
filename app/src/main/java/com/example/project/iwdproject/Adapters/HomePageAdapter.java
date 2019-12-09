@@ -1,8 +1,8 @@
 package com.example.project.iwdproject.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,11 +18,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static final int TYPE_1 = 0xff01;
-    public static final int TYPE_2 = 0xff02;
-    public static final int TYPE_3 = 0xff03;
-    public static final int TYPE_4 = 0xff04;
-    public static final int TYPE_MAIN = 0xffff;
+    public  final int TYPE_1 = 0xff01;
+    public  final int TYPE_2 = 0xff02;
+    public  final int TYPE_3 = 0xff03;
+    public  final int TYPE_4 = 0xff04;
+    public  final int TYPE_MAIN = 0xffff;
+
 
     private Context mContext;
     private OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener;
@@ -138,9 +139,6 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     };
 
 
-
-
-
     public class ViewHolderHot extends RecyclerView.ViewHolder {
         @BindView(R.id.recycle_hot)
         RecyclerView recycleHot;
@@ -153,19 +151,53 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-
-
-
     /**
      * 币种列表
      */
     private void bindTypeCoin(final ViewHolderCoin holder, final int position) {
+        final LinearLayoutManager mHotLinearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        holder.recycleCoin.setLayoutManager(mHotLinearLayoutManager);
+        holder.recycleCoin.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));   //添加分割线
+//        holder.mRecycleHot.addItemDecoration(new RecycleViewDivider(mContext, LinearLayoutManager.HORIZONTAL, R.drawable.divider_mileage)); //自定义分割线样式
+        holder.recycleCoin.setHasFixedSize(true);
+        holder.recycleCoin.setFocusableInTouchMode(false);//不需要焦点
+
+        CoinAdapter mCoinAdapter = new CoinAdapter(mContext, mRecyclerViewItemClickListener);
+        holder.recycleCoin.setAdapter(mCoinAdapter);
 
     }
 
+
+
+
+
+    private OnRecyclerViewItemDeClickListener mRecyclerViewItemClickListener = new OnRecyclerViewItemDeClickListener() {
+
+
+        @Override
+        public void onRecyclerViewItemClicked(int position, RecyclerView.ViewHolder viewHolder) {
+
+        }
+
+        @Override
+        public void onRecyclerViewItemLongClicked(int position, RecyclerView.ViewHolder viewHolder) {
+
+        }
+
+        @Override
+        public void onRecyclerViewItemClicked() {
+
+        }
+
+
+    };
+
+
+
     public class ViewHolderCoin extends RecyclerView.ViewHolder {
 
-
+        @BindView(R.id.recycle_coin)
+        RecyclerView recycleCoin;
         public ViewHolderCoin(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

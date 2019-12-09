@@ -42,13 +42,14 @@ public class MainActivity extends BaseActivity {
     private void initView() {
         MainAdapter mainAdapter = new MainAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mainAdapter);
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(4);
         alphaIndicator.setViewPager(viewPager);
         viewPager.addOnPageChangeListener(mainAdapter);
 
         alphaIndicator.getTabView(0).removeShow();
         alphaIndicator.getTabView(1).removeShow();
         alphaIndicator.getTabView(2).removeShow();
+        alphaIndicator.getTabView(3).removeShow();
 
     }
 

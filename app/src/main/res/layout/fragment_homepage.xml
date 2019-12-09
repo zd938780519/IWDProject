@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/color_061625">
 
 
@@ -14,7 +14,7 @@
     <LinearLayout
         android:id="@+id/ll_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
      >
 
 
@@ -28,7 +28,7 @@
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never" />
+              />
         </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
     </LinearLayout>
 
