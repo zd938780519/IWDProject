@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="178dp"
+        android:background="@color/color_131e31"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:id="@+id/ll_guanbi"
+            android:layout_width="@dimen/item_offset_40dp"
+            android:layout_height="@dimen/item_offset_40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@mipmap/guanbi"/>-->
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_choose"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:text="身份证"
+                    android:drawableLeft="@mipmap/icon_xz_4"
+                    android:textColor="@color/color_888888"
+                    android:textSize="@dimen/item_offset_16sp" />
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="护照"
+                    android:drawableLeft="@mipmap/icon_wxz_5"
+                    android:textColor="@color/color_888888"
+                    android:textSize="@dimen/item_offset_16sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="@dimen/item_offset_15dp"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/img_qr_5"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625">
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_toolbar" />
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/ll_choose"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/item_offset_25dp"
+            android:layout_marginLeft="@dimen/item_offset_25dp"
+            android:layout_marginTop="@dimen/item_offset_5dp"
+            android:background="@color/color_131e31"
+            android:layout_height="@dimen/item_offset_50dp">
+
+            <TextView
+                android:id="@+id/tv_coinname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/item_offset_11dp"
+                android:text="USDT"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_16sp" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择币种"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_16sp"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/icon_jr_3"
+                android:layout_marginRight="@dimen/item_offset_13dp"
+                android:drawablePadding="@dimen/item_offset_6dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_25dp"
+            android:layout_marginTop="@dimen/item_offset_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="链接类型"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_12sp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ERC20"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/item_offset_22dp"
+                android:textSize="@dimen/item_offset_12sp"
+                />
+
+        </LinearLayout>
+
+
+
+
+        <ImageView
+            android:id="@+id/iv_ercode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/img_rwm_1"
+            android:layout_marginTop="@dimen/item_offset_45dp"/>
+
+
+
+        <LinearLayout
+            android:layout_width="@dimen/item_offset_160dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="@dimen/item_offset_40dp"
+            android:background="@color/color_131e31"
+            android:layout_marginTop="@dimen/item_offset_16dp">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="保存二维码至相册"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_16sp" />
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="充值地址"
+            android:layout_marginTop="@dimen/item_offset_14dp"
+            android:layout_gravity="center"
+            android:textColor="@color/color_888888"
+            android:textSize="@dimen/item_offset_15sp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/item_offset_40dp"
+            android:layout_marginLeft="@dimen/item_offset_40dp"
+            android:gravity="center"
+            android:text="0245bxh1x5f26dsd64f52622d"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/item_offset_10dp"
+            android:textSize="@dimen/item_offset_16sp" />
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_copy"
+            android:layout_width="@dimen/item_offset_60dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="@dimen/item_offset_40dp"
+            android:background="@color/color_131e31"
+            android:layout_marginTop="@dimen/item_offset_16dp">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="复制"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_16sp"
+                />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请勿向上述充值任何非ERC20_USDT资产，否则资产将不可找回。"
+
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/color_888888"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginBottom="@dimen/item_offset_10dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:textSize="@dimen/item_offset_15dp" />
+
+
+
+</RelativeLayout>

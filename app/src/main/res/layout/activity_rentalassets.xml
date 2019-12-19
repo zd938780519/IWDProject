@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@mipmap/bg_14">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:layout_alignParentLeft="true"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:src="@mipmap/nav_back_3"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="@dimen/item_offset_15dp" />
+
+                <TextView
+                    android:id="@+id/tv_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="IDW资产"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_17sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_left" />
+            </RelativeLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_below="@+id/rl_back"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_offset_28dp"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:layout_marginRight="@dimen/item_offset_15dp"
+                android:gravity="center_vertical"
+                android:background="@mipmap/img_21">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/item_offset_10dp"
+                    android:text="公告"
+                    android:textSize="@dimen/item_offset_14sp"
+                    android:textColor="@color/color_6362EB"
+                    android:drawableLeft="@mipmap/icon_gg_1" />
+
+
+                <com.example.project.iwdproject.View.NoticeView
+                    android:id="@+id/net_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="USpace IWD无人机信息采集租赁开始啦！"
+                    android:layout_marginLeft="@dimen/item_offset_18dp"
+
+
+                    />
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/item_offset_110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:background="@drawable/shape_btn_bluehei"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/item_offset_10dp"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/img_avatar_10"/>
+
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IWD资产"
+
+                    android:textColor="@color/color_888888"
+                    android:textSize="@dimen/item_offset_14sp" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_8dp"
+                android:layout_gravity="center"
+                android:text="0.00000000"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_18sp" />
+
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="≈0.00000000"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_14sp"
+                android:layout_marginTop="@dimen/item_offset_6dp"
+                android:layout_gravity="center"
+                />
+
+
+
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_30dp"
+                android:layout_marginBottom="@dimen/item_offset_20dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="可用余额(IWD)"
+                        android:textColor="@color/color_888888"
+                        android:textSize="@dimen/item_offset_14sp" />
+
+
+
+                    <TextView
+                        android:id="@+id/tv_yue"
+                        android:layout_marginTop="@dimen/item_offset_10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0000"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/item_offset_15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/item_offset_9dp"
+                    android:layout_marginBottom="@dimen/item_offset_9dp"
+                    android:background="@color/color_888888"/>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="提币中(IWD)"
+                        android:textColor="@color/color_888888"
+                        android:textSize="@dimen/item_offset_14sp" />
+
+
+
+                    <TextView
+                        android:id="@+id/tv_tibi"
+                        android:layout_marginTop="@dimen/item_offset_10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0000"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/item_offset_15sp" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/color_131e31">
+
+
+
+        <LinearLayout
+            android:id="@+id/chongbi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="充币"
+                android:textColor="@color/white"
+                android:drawableTop="@mipmap/icon_cb_20"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/tibi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提币"
+                android:textColor="@color/white"
+                android:drawableTop="@mipmap/icon_tb_21"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_shanchong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="闪兑"
+                android:textColor="@color/white"
+                android:drawableTop="@mipmap/icon_sc_22"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/zhuanzhang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="转账"
+                android:textColor="@color/white"
+                android:drawableTop="@mipmap/icon_zz_23"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

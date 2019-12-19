@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/include_toolbar"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/nothead_iamge"
+            android:layout_width="@dimen/item_offset_66dp"
+            android:layout_height="@dimen/item_offset_66dp"
+            android:layout_alignParentStart="true"
+
+            android:layout_centerVertical="true"
+            android:src="@mipmap/img_avatar_55"
+            app:civ_border_width="1dp" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="18365489587"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_20sp" />
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_offset_68dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="转账数量(IWD)"
+            android:textColor="@color/color_888888"
+            android:layout_marginLeft="@dimen/item_offset_16dp"
+            android:textSize="@dimen/item_offset_14sp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_yue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="余额：0.0000"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/item_offset_26dp"
+            android:textSize="@dimen/item_offset_14sp" />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_50dp"
+        android:layout_marginTop="@dimen/item_offset_13dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:background="@color/color_061625">
+
+
+        <EditText
+            android:id="@+id/et_leasenum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="请输入租赁数量"
+            android:textColorHint="@color/color_888888"
+            android:textSize="@dimen/item_offset_15sp"
+            android:background="@null"
+            android:inputType="numberDecimal"
+            android:textColor="@color/white"/>
+
+
+
+        <View
+            android:layout_width="@dimen/item_offset_1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_888888"
+            android:layout_toLeftOf="@+id/tv_allcoin"
+            android:layout_marginTop="@dimen/item_offset_16dp"
+            android:layout_marginRight="@dimen/item_offset_12dp"
+            android:layout_marginBottom="@dimen/item_offset_16dp"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_allcoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部"
+            android:textColor="@color/color_6362EB"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:textSize="@dimen/item_offset_16sp" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/item_offset_15dp"-->
+        <!--android:layout_marginTop="@dimen/item_offset_15dp">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="手  续  费："-->
+            <!--android:textColor="@color/color_888888"-->
+            <!--android:textSize="@dimen/item_offset_14sp"-->
+            <!--/>-->
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_shouxufei"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="0.0000"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/item_offset_14sp"-->
+            <!--/>-->
+
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="IWD"-->
+            <!--android:layout_marginLeft="@dimen/item_offset_8dp"-->
+            <!--android:textColor="@color/color_888888"-->
+            <!--android:textSize="@dimen/item_offset_14sp" />-->
+
+    <!--</LinearLayout>-->
+
+
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/item_offset_15dp"-->
+        <!--android:layout_marginTop="@dimen/item_offset_15dp">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="实际到账："-->
+            <!--android:textColor="@color/color_888888"-->
+            <!--android:textSize="@dimen/item_offset_14sp"-->
+            <!--/>-->
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_daozhang"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="0.0000"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/item_offset_14sp"-->
+            <!--/>-->
+
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="IWD"-->
+            <!--android:layout_marginLeft="@dimen/item_offset_8dp"-->
+            <!--android:textColor="@color/color_888888"-->
+            <!--android:textSize="@dimen/item_offset_14sp" />-->
+
+    <!--</LinearLayout>-->
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_context"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_65dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_50dp"
+        android:background="@color/color_061625">
+        <EditText
+            android:id="@+id/et_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_65dp"
+            android:paddingLeft="@dimen/item_offset_8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:background="@null"
+            android:hint="添加备注(20字以内)"
+            android:textColor="@color/white"
+            android:textColorHint="#888888"
+            android:textSize="@dimen/item_offset_12sp"
+            android:maxLength="150"
+           />
+
+    </RelativeLayout>
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/im_zhuanzhang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/item_offset_30dp"
+        android:background="@mipmap/img_55"/>
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

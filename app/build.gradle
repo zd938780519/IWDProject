@@ -44,6 +44,11 @@ dependencies {
 
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
 
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+
+
+    implementation 'com.teprinciple:updateapputils:1.4'   //用于APP版本更新
+
 
 
 }

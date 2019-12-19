@@ -1,6 +1,7 @@
 package com.example.project.iwdproject.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,28 +10,43 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.project.iwdproject.Beans.FirstHomePageBean;
+import com.example.project.iwdproject.Beans.MarketBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
+import com.example.project.iwdproject.MainActivity;
 import com.example.project.iwdproject.R;
 import com.example.project.iwdproject.Utils.WrappableGridLayoutManager;
+import com.example.project.iwdproject.View.NoticeView;
+import com.example.project.iwdproject.widget.BannerLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public  final int TYPE_1 = 0xff01;
-    public  final int TYPE_2 = 0xff02;
-    public  final int TYPE_3 = 0xff03;
-    public  final int TYPE_4 = 0xff04;
-    public  final int TYPE_MAIN = 0xffff;
+    public final int TYPE_1 = 0xff01;
+    public final int TYPE_2 = 0xff02;
+    public final int TYPE_3 = 0xff03;
+    public final int TYPE_4 = 0xff04;
+    public final int TYPE_MAIN = 0xffff;
 
 
     private Context mContext;
     private OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener;
+    private FirstHomePageBean.DataBean mFirstHomeData;
+    private List<FirstHomePageBean.DataBean.BannerBean> mBannerList = new ArrayList<>();
+    private List<FirstHomePageBean.DataBean.NoticeBean> mNoticeList = new ArrayList<>();
+    private List<MarketBean.DataBean> mMarketData = new ArrayList<>();
 
-
-    public HomePageAdapter(Context mContext, OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener) {
+    public HomePageAdapter(Context mContext,FirstHomePageBean.DataBean mFirstHomeData, List<MarketBean.DataBean> mMarketData,OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener) {
         this.mContext = mContext;
+        this.mFirstHomeData = mFirstHomeData;
+        this.mMarketData = mMarketData;
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
 //        this.mAccessToken = mAccessToken;
 
@@ -77,10 +93,53 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
      */
     private void bindTypeBnner(final ViewHolderBanner holder, int position) {
 
+        List<String> mImageList = new ArrayList<>();
+        mBannerList = mFirstHomeData.getBanner();  //轮播图列表
+        mNoticeList = mFirstHomeData.getNotice();
+
+        for (int i=0 ;i< mBannerList.size(); i++){
+            mImageList.add(mBannerList.get(i).getImg());
+        }
+        if (mImageList.size()!=0){
+            holder.banner.setViewUrls(mImageList);
+        }
+
+
+        // 首先，模拟一个公告的集合。需要字符串泛型的list
+        final List<String> list = new ArrayList<>();
+        for (int i=0 ;i< mNoticeList.size(); i++){
+            list.add(mNoticeList.get(i).getContent());
+        }
+//        list.add("推荐歌曲：Eyelis - 絆にのせて");
+//        list.add("挺好听的，我听了快100遍了");
+//        list.add("好想回宿舍打游戏=。=");
+        holder.netText.setNoticeList(list);
+
+        holder.netText.start();
+
+        // 这里就是监听点击事件，TextView是点中的那个公告，position是位置。
+        // 比如点击之后想该条公告边灰色，就可以view.setTextColor();实现了
+        holder.netText.setOnItemClickListener(new NoticeView.OnItemClickListener() {
+            @Override
+            public void onItemClick(TextView view, int position) {
+                String s = list.get(position);
+//                view.setTextColor(Color.WHITE);
+                Toast.makeText(mContext, s, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
 
+
+
+
     public class ViewHolderBanner extends RecyclerView.ViewHolder {
+        @BindView(R.id.banner)
+        BannerLayout banner;
+        @BindView(R.id.net_text)
+        NoticeView netText;
 
         public ViewHolderBanner(View itemView) {
             super(itemView);
@@ -105,7 +164,7 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         final WrappableGridLayoutManager manager = new WrappableGridLayoutManager(mContext, 3);
 //        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);     //防止瀑布流图片闪烁
         holder.recycleHot.setLayoutManager(manager);
-        HotAdapter mDropAdapter = new HotAdapter(mContext, onDropRecyclerViewItemClickListener);
+        HotAdapter mDropAdapter = new HotAdapter(mContext,mMarketData, onDropRecyclerViewItemClickListener);
         holder.recycleHot.setAdapter(mDropAdapter);
 
 //        holder.tvtopMore.setOnClickListener(new View.OnClickListener() {   //项目空投更多
@@ -162,13 +221,10 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder.recycleCoin.setHasFixedSize(true);
         holder.recycleCoin.setFocusableInTouchMode(false);//不需要焦点
 
-        CoinAdapter mCoinAdapter = new CoinAdapter(mContext, mRecyclerViewItemClickListener);
+        CoinAdapter mCoinAdapter = new CoinAdapter(mContext,mMarketData, mRecyclerViewItemClickListener);
         holder.recycleCoin.setAdapter(mCoinAdapter);
 
     }
-
-
-
 
 
     private OnRecyclerViewItemDeClickListener mRecyclerViewItemClickListener = new OnRecyclerViewItemDeClickListener() {
@@ -193,11 +249,11 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     };
 
 
-
     public class ViewHolderCoin extends RecyclerView.ViewHolder {
 
         @BindView(R.id.recycle_coin)
         RecyclerView recycleCoin;
+
         public ViewHolderCoin(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

@@ -93,6 +93,7 @@
     <dimen name="item_offset_46dp">46dp</dimen>
     <dimen name="item_offset_48dp">48dp</dimen>
     <dimen name="item_offset_50dp">50dp</dimen>
+    <dimen name="item_offset_52dp">52dp</dimen>
     <dimen name="item_offset_54dp">54dp</dimen>
     <dimen name="item_offset_55dp">55dp</dimen>
     <dimen name="item_offset_53dp">53dp</dimen>
@@ -114,6 +115,7 @@
     <dimen name="item_offset_96dp">96dp</dimen>
     <dimen name="item_offset_102dp">102dp</dimen>
     <dimen name="item_offset_100dp">100dp</dimen>
+    <dimen name="item_offset_110dp">110dp</dimen>
     <dimen name="item_offset_112dp">112dp</dimen>
     <dimen name="item_offset_119dp">119dp</dimen>
     <dimen name="item_offset_120dp">120dp</dimen>
@@ -123,6 +125,8 @@
     <dimen name="item_offset_160dp">160dp</dimen>
     <dimen name="item_offset_180dp">180dp</dimen>
     <dimen name="item_offset_200dp">200dp</dimen>
+    <dimen name="item_offset_210dp">210dp</dimen>
+    <dimen name="item_offset_220dp">220dp</dimen>
     <dimen name="item_offset_250dp">250dp</dimen>
     <dimen name="item_offset_231dp">231dp</dimen>
     <dimen name="item_emoticon_size_big">60dp</dimen>

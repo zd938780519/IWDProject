@@ -5,6 +5,7 @@
     android:id="@+id/titleBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/color_131e31"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -26,7 +27,7 @@
                 android:id="@+id/iv_left"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                android:src="@mipmap/back"
+                android:src="@mipmap/nav_back_3"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="@dimen/item_offset_15dp" />
@@ -37,11 +38,11 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 android:text="返回"
-                android:textColor="@color/color_1A1B1F"
-                android:textSize="@dimen/item_offset_14sp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_17sp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_left"
-                android:layout_marginLeft="@dimen/item_offset_10dp"
+
 
                 />
         </RelativeLayout>

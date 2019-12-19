@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625"
+   >
+
+
+    <include layout="@layout/include_toolbar"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_offset_24dp"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:text="对方账号"
+        android:textColor="@color/white"
+        android:textSize="@dimen/item_offset_15sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_48dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_34dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:background="@color/color_131e31">
+
+
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_48dp"
+            android:textColorHint="@color/color_888888"
+            android:textColor="@color/white"
+            android:inputType="phone"
+            android:hint="请输入手机号码"
+            android:background="@null"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CustomCheckBoxTheme"
+            />
+
+        <TextView
+            android:id="@+id/user_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_5dp"
+            android:text="IWD租赁平台账号"
+            android:textColor="@color/color_6362EB"
+            android:textSize="@dimen/item_offset_13sp" />
+    </LinearLayout>
+    
+    
+    
+    
+    <LinearLayout
+        android:id="@+id/ll_nextbtn"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_160dp"
+        android:background="@drawable/shape_btn_blue"
+        android:gravity="center"
+        android:layout_height="45dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一步"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp"
+            />
+
+    </LinearLayout>
+    
+    
+
+</LinearLayout>

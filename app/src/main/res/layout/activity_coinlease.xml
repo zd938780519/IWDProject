@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/bg_14">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_offset_20dp"
+                    android:layout_alignParentLeft="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/nav_back_3"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="@dimen/item_offset_15dp" />
+
+                    <TextView
+                        android:id="@+id/tv_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="租赁"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/item_offset_17sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_left" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_jilu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/item_offset_45dp"
+                        android:text="记录"
+                        android:layout_marginTop="@dimen/item_offset_20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/item_offset_16dp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/item_offset_15dp"
+                        />
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/item_offset_100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/shape_btn_bluehei"
+            android:orientation="vertical">
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_coinname"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="IWD资产"-->
+                <!--android:layout_marginTop="@dimen/item_offset_15dp"-->
+                <!--android:textColor="@color/color_888888"-->
+                <!--android:textSize="@dimen/item_offset_14sp"-->
+                <!--/>-->
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_num"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="0.0000"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:layout_marginTop="@dimen/item_offset_12dp"-->
+                <!--android:textSize="@dimen/item_offset_18sp" />-->
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_30dp"
+                android:layout_marginBottom="@dimen/item_offset_25dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="可用租赁"
+                        android:textColor="@color/color_888888"
+                        android:textSize="@dimen/item_offset_14sp" />
+
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/item_offset_10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0000"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/item_offset_15sp" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="已租赁"
+                        android:textColor="@color/color_888888"
+                        android:textSize="@dimen/item_offset_14sp" />
+
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/item_offset_10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2.5469"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/item_offset_15sp" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/item_offset_10dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:background="@drawable/shape_btn_bluehei">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_offset_10dp">
+
+            <CheckBox
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                style="@style/CustomCheckBoxTheme"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_offset_4dp"
+                android:text="我同意租赁"
+                android:textColor="@color/color_6362EB"
+                android:textSize="@dimen/item_offset_15sp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_offset_35dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_choose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_wxz_5"/>
+
+                <ImageView
+                    android:id="@+id/iv_coin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/item_offset_8dp"
+                    android:background="@mipmap/img_avatar_13"/>
+
+
+                <TextView
+                    android:id="@+id/tv_coinname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USDT"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/item_offset_5dp"
+                    android:textSize="@dimen/item_offset_15sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/tv_choose1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_xz_4"/>
+
+                <ImageView
+                    android:id="@+id/iv_coin1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/item_offset_8dp"
+                    android:background="@mipmap/img_avatar_13"/>
+
+
+                <TextView
+                    android:id="@+id/tv_coinname1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USDT"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/item_offset_5dp"
+                    android:textSize="@dimen/item_offset_15sp"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+        android:id="@+id/ll_lease"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/item_offset_50dp"
+        android:layout_marginLeft="@dimen/item_offset_100dp"
+        android:layout_marginRight="@dimen/item_offset_100dp"
+        android:background="@drawable/shape_btn_blue"
+        android:layout_marginBottom="@dimen/item_offset_30dp"
+        android:gravity="center"
+        android:layout_height="@dimen/item_offset_30dp">
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="租赁"
+        android:textColor="@color/white"
+        android:textSize="@dimen/item_offset_14sp"
+        />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

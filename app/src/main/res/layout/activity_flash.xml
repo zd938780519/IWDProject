@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="余额：0.00000000(IWD)"
+        android:layout_marginTop="@dimen/item_offset_28dp"
+        android:layout_marginLeft="@dimen/item_offset_24dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/item_offset_15sp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_height="@dimen/item_offset_48dp"
+        android:layout_marginTop="@dimen/item_offset_33dp"
+        android:gravity="center_vertical"
+        android:background="@color/color_131e31">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IWD"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/item_offset_16dp"
+            android:textSize="@dimen/item_offset_16sp" />
+
+
+        <View
+            android:layout_width="@dimen/item_offset_1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_888888"
+            android:layout_marginTop="@dimen/item_offset_13dp"
+            android:layout_marginBottom="@dimen/item_offset_13dp"
+            android:layout_marginLeft="@dimen/item_offset_40dp"/>
+
+
+        <EditText
+            android:id="@+id/et_iwdnum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+
+            android:hint="输入数量"
+            android:textColor="@color/white"
+            android:textColorHint="@color/color_888888"
+            android:layout_marginLeft="@dimen/item_offset_20dp"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/item_offset_13dp"
+        android:background="@mipmap/icon_dh_25"/>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_height="@dimen/item_offset_48dp"
+        android:layout_marginTop="@dimen/item_offset_33dp"
+        android:gravity="center_vertical"
+        android:background="@color/color_131e31">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USDT"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/item_offset_16dp"
+            android:textSize="@dimen/item_offset_16sp" />
+
+
+        <View
+            android:layout_width="@dimen/item_offset_1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_888888"
+            android:layout_marginTop="@dimen/item_offset_13dp"
+            android:layout_marginBottom="@dimen/item_offset_13dp"
+            android:layout_marginLeft="@dimen/item_offset_40dp"/>
+
+
+        <TextView
+            android:id="@+id/et_USDTnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:hint="兑换数量"
+            android:textColor="@color/color_888888"
+            android:layout_marginLeft="@dimen/item_offset_20dp"
+           />
+
+    </LinearLayout>
+
+
+
+
+    <ImageView
+        android:id="@+id/iv_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/item_offset_120dp"
+        android:background="@mipmap/img_qr_3"/>
+
+</LinearLayout>

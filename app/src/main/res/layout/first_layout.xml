@@ -62,6 +62,7 @@
 
 
         <TextView
+            android:id="@+id/all_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1254.20"
@@ -98,6 +99,7 @@
         
         
         <LinearLayout
+            android:id="@+id/ll_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -125,6 +127,7 @@
 
 
         <LinearLayout
+            android:id="@+id/ll_lease"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -152,6 +155,7 @@
 
 
         <LinearLayout
+            android:id="@+id/ll_Income"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

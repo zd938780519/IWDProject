@@ -13,19 +13,31 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.project.iwdproject.Adapters.HomePageAdapter;
+import com.example.project.iwdproject.Beans.CodeBean;
+import com.example.project.iwdproject.Beans.FirstHomePageBean;
+import com.example.project.iwdproject.Beans.MarketBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
 import com.example.project.iwdproject.R;
+import com.example.project.iwdproject.RxJavaUtils.RetrofitHttpUtil;
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.lcodecore.tkrefreshlayout.footer.LoadingView;
 import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
+import com.mchsdk.paysdk.retrofitutils.result.HttpResponseException;
+import com.mchsdk.paysdk.retrofitutils.rxjava.observable.SchedulerTransformer;
+import com.mchsdk.paysdk.retrofitutils.rxjava.observer.BaseObserver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.functions.Action;
 
 public class HomePageFragment extends BaseFragment {
     public static final String FRAD_TITLE = "frag_title";
@@ -55,6 +67,8 @@ public class HomePageFragment extends BaseFragment {
     TwinklingRefreshLayout secondaryRefreshLayout;
     @BindView(R.id.ll_home)
     LinearLayout llHome;
+    private FirstHomePageBean.DataBean mFirstHomeData;
+    private List<MarketBean.DataBean> mMarketData = new ArrayList<>();
 
     private Context instance;
     public static HomePageFragment newInstance(String title) {
@@ -94,12 +108,10 @@ public class HomePageFragment extends BaseFragment {
         secondaryRefreshLayout.setBottomView(loadingView);
         secondaryRefreshLayout.setOnRefreshListener(mRefreshListenerAdapter);
 
-        HomePageAdapter mHomePageAdapter = new HomePageAdapter(instance,  onRecyclerViewItemClickListener);
-        recyclerview.setAdapter(mHomePageAdapter);
 
 
 
-
+//        getFirstHomeData();
     }
 
 
@@ -131,7 +143,96 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
+        getFirstHomeData();
+    }
 
+    /**
+     * 首页banner  和 滚动通告
+     */
+    private void getFirstHomeData() {
+        String application = "application/json";
+        RetrofitHttpUtil.getApiService()
+                .getFirstHome(application)
+                .compose(this.<FirstHomePageBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<FirstHomePageBean>transformer())
+                .doFinally(new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                })
+                .subscribe(new BaseObserver<FirstHomePageBean>() {
+                    @Override
+                    protected void onSuccess(FirstHomePageBean mFirstHomePageBean) {
+                        if (mFirstHomePageBean != null) {
+                            if (mFirstHomePageBean.getCode() == 10086) {
+                                Toast.makeText(instance, mFirstHomePageBean.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                mFirstHomeData = mFirstHomePageBean.getData();
+                                getMarketData();
+
+                            } else {
+                                Toast.makeText(instance, mFirstHomePageBean.getMessage(), Toast.LENGTH_SHORT).show();
+//                                ToastShort(instance, mFirstHomePageBean.getMessage());
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    protected void onFailed(HttpResponseException responseException) {
+                        super.onFailed(responseException);
+//                        ToastShort.showShortToast("网络错误！");
+                        Toast.makeText(instance,  "error code : " + responseException.getStatus(), Toast.LENGTH_SHORT).show();
+//                        ToastShort(instance, "error code : " + responseException.getStatus());
+//                        ToastShort(instance, "网络有误！");
+                    }
+                });
+    }
+
+
+
+    /**
+     * 首页币行情
+     */
+    private void getMarketData() {
+        String application = "application/json";
+        RetrofitHttpUtil.getApiService()
+                .getMarket(application)
+                .compose(this.<MarketBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<MarketBean>transformer())
+                .doFinally(new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                })
+                .subscribe(new BaseObserver<MarketBean>() {
+                    @Override
+                    protected void onSuccess(MarketBean mMarketBean) {
+                        if (mMarketBean != null) {
+                            if (mMarketBean.getCode() == 10086) {
+                                mMarketData =  mMarketBean.getData();
+                                HomePageAdapter mHomePageAdapter = new HomePageAdapter(instance,mFirstHomeData,mMarketData,  onRecyclerViewItemClickListener);
+                                recyclerview.setAdapter(mHomePageAdapter);
+
+                            } else {
+                                Toast.makeText(instance, mMarketBean.getMessage(), Toast.LENGTH_SHORT).show();
+//                                ToastShort(instance, mFirstHomePageBean.getMessage());
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    protected void onFailed(HttpResponseException responseException) {
+                        super.onFailed(responseException);
+//                        ToastShort.showShortToast("网络错误！");
+                        Toast.makeText(instance,  "error code : " + responseException.getStatus(), Toast.LENGTH_SHORT).show();
+//                        ToastShort(instance, "error code : " + responseException.getStatus());
+//                        ToastShort(instance, "网络有误！");
+                    }
+                });
     }
 
 

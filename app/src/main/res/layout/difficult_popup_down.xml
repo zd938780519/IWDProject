@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:background="@color/color_060606">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_1dp"
+            android:background="@color/color_888888"/>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginTop="@dimen/item_offset_20dp"
+            android:layout_height="@dimen/item_offset_50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_usdt"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="USDT"
+                android:gravity="center"
+                android:textColor="@color/color_6362EB"
+                android:textSize="@dimen/item_offset_14sp" />
+
+
+
+
+            <TextView
+                android:id="@+id/tv_iwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="IWD"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_14sp" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/iv_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:layout_marginBottom="@dimen/item_offset_20dp"
+            android:layout_marginTop="@dimen/item_offset_30dp"
+            android:background="@mipmap/img_qr_3"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

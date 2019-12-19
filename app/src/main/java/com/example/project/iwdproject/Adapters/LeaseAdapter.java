@@ -1,18 +1,27 @@
 package com.example.project.iwdproject.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.project.iwdproject.Activitys.LeaseActivity;
+import com.example.project.iwdproject.Activitys.MyIncomeActivity;
+import com.example.project.iwdproject.Activitys.PaymentActivity;
+import com.example.project.iwdproject.Beans.BalanceBean;
+import com.example.project.iwdproject.Beans.MyBalanceListBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
 import com.example.project.iwdproject.R;
-import com.example.project.iwdproject.Utils.RecycleViewDivider;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,12 +36,17 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public final int TYPE_MAIN = 0xffff;
 
 
+
     private Context mContext;
     private OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener;
+    private BalanceBean.DataBean mBalanceData;
+      private List<MyBalanceListBean.DataBean.ListBean> mMyBalanceListData;
 
 
-    public LeaseAdapter(Context mContext, OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener) {
+    public LeaseAdapter(Context mContext, BalanceBean.DataBean mBalanceData, List<MyBalanceListBean.DataBean.ListBean> mMyBalanceListData,OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener) {
         this.mContext = mContext;
+        this.mBalanceData = mBalanceData;
+        this.mMyBalanceListData = mMyBalanceListData;
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
 //        this.mAccessToken = mAccessToken;
 
@@ -70,11 +84,45 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
     private void bindTypeFirst(ViewHolderFirst holder, int position) {
-
+        holder.llPayment.setOnClickListener(new View.OnClickListener() {    //收付款
+            @Override
+            public void onClick(View v) {    //收付款码
+                Intent PaymentIntent = new Intent(mContext, PaymentActivity.class);
+                mContext.startActivity(PaymentIntent);
+            }
+        });
+        holder.llLease.setOnClickListener(new View.OnClickListener() {   //租赁计划
+            @Override
+            public void onClick(View v) {   //租赁计划
+                Intent LeaseIntent = new Intent(mContext, LeaseActivity.class);
+                mContext.startActivity(LeaseIntent);
+            }
+        });
+        holder.llIncome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {   //我的收益
+                Intent MyIncomeIntent = new Intent(mContext, MyIncomeActivity.class);
+                mContext.startActivity(MyIncomeIntent);
+            }
+        });
+        holder.allNum.setText(mBalanceData.getIWD().getTotal());
+        holder.tvPrice.setText("≈"+mBalanceData.getIWD().getTotal_price());
     }
 
 
     public class ViewHolderFirst extends RecyclerView.ViewHolder {
+        @BindView(R.id.iv_yanjing)
+        ImageView ivYanjing;
+        @BindView(R.id.all_num)
+        TextView allNum;
+        @BindView(R.id.ll_payment)
+        LinearLayout llPayment;
+        @BindView(R.id.ll_lease)
+        LinearLayout llLease;
+        @BindView(R.id.ll_Income)
+        LinearLayout llIncome;
+        @BindView(R.id.tv_price)
+        TextView tvPrice;
 
         public ViewHolderFirst(View itemView) {
             super(itemView);
@@ -92,13 +140,9 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         holder.recycleSecound.setHasFixedSize(true);
         holder.recycleSecound.setFocusableInTouchMode(false);//不需要焦点
 
-        SecoundAdapter mSecoundAdapter = new SecoundAdapter(mContext, mRecyclerViewItemClickListener);
+        SecoundAdapter mSecoundAdapter = new SecoundAdapter(mContext,mMyBalanceListData, mRecyclerViewItemClickListener);
         holder.recycleSecound.setAdapter(mSecoundAdapter);
     }
-
-
-
-
 
 
     private OnRecyclerViewItemDeClickListener mRecyclerViewItemClickListener = new OnRecyclerViewItemDeClickListener() {
@@ -121,7 +165,6 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
     };
-
 
 
     public class ViewHolderScound extends RecyclerView.ViewHolder {

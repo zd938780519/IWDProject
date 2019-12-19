@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_alllayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_80dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/shape_btn_bluehei"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_10dp"
+            android:layout_marginRight="@dimen/item_offset_16dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_iamge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/img_avatar_13"/>
+
+            <TextView
+                android:id="@+id/tv_coinname"
+                android:layout_toRightOf="@+id/iv_iamge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USDT"
+                android:layout_marginLeft="@dimen/item_offset_8dp"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_coinprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00000000"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_14sp"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_40dp"
+            android:layout_marginRight="@dimen/item_offset_17dp"
+            android:layout_marginTop="@dimen/item_offset_7dp">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$2.5200"
+                android:textColor="@color/white"
+                android:textSize="@dimen/item_offset_15sp"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_twoprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.0000"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/item_offset_15sp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

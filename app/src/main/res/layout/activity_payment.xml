@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625">
+
+    <include layout="@layout/include_toolbar"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_5dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/color_060606">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描二维码向我付款"
+            android:layout_marginTop="@dimen/item_offset_32dp"
+            android:textColor="@color/color_fefefe"
+            android:textSize="14sp" />
+
+
+        <ImageView
+            android:id="@+id/iv_twocode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_offset_26dp"
+            android:background="@mipmap/img_rwm_1"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_setmoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置金额"
+            android:layout_marginTop="@dimen/item_offset_30dp"
+            android:textColor="@color/color_5453F3"
+            android:layout_marginBottom="@dimen/item_offset_25dp"
+            android:textSize="@dimen/item_offset_17sp" />
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_collection"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_50dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_10dp"
+        android:background="@color/color_060606">
+
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_12dp"
+            android:background="@mipmap/img_avatar_usdt_1"/>
+
+
+        <TextView
+            android:layout_toRightOf="@+id/iv_icon"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_7dp"
+            android:text="USDT  收款 "
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_14sp" />
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/item_offset_8dp"
+            android:background="@mipmap/icon_xl_2"/>
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_zhangdan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_50dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_6dp"
+        android:background="@color/color_060606">
+
+        <ImageView
+            android:id="@+id/tv_zhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_12dp"
+            android:background="@mipmap/icon_zd_12"/>
+
+
+        <TextView
+            android:layout_toRightOf="@+id/tv_zhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_offset_7dp"
+            android:text="账单"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_14sp" />
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/item_offset_8dp"
+            android:background="@mipmap/icon_jr_14"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

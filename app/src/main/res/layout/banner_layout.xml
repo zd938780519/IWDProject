@@ -55,13 +55,14 @@
             android:background="@mipmap/icon_gg_1"/>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.example.project.iwdproject.View.NoticeView
+            android:id="@+id/net_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="USpace IWD无人机信息采集租赁开始啦！"
             android:layout_marginLeft="@dimen/item_offset_8dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/item_offset_11sp" />
+
+          />
     </LinearLayout>
 
 

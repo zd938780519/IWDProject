@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625">
+
+    <include layout="@layout/include_toolbar"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_offset_26dp"
+        android:layout_marginRight="@dimen/item_offset_35dp"
+        android:layout_marginLeft="@dimen/item_offset_35dp"
+        android:background="@mipmap/bg_1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_pleasecode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邀请码：154225"
+            android:layout_marginTop="@dimen/item_offset_26dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp" />
+
+
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+86459****5862的分享"
+            android:layout_marginTop="@dimen/item_offset_14dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp" />
+
+
+        <ImageView
+            android:id="@+id/iv_twocode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_offset_26dp"
+            android:src="@mipmap/img_rwm_1"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描二维码注册下载"
+            android:layout_marginTop="@dimen/item_offset_17dp"
+            android:textColor="@color/color_5453F3"
+            android:textSize="17sp" />
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_1dp"
+            android:layout_marginLeft="@dimen/item_offset_28dp"
+            android:layout_marginRight="@dimen/item_offset_28dp"
+            android:layout_marginTop="@dimen/item_offset_27dp"
+            android:background="@color/white"/>
+
+
+        <TextView
+            android:id="@+id/tv_disser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hattps://h5.muimunics.com"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/item_offset_22dp"
+            android:textSize="@dimen/item_offset_17sp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/item_offset_30dp"
+            android:layout_marginLeft="@dimen/item_offset_30dp"
+            android:layout_height="@dimen/item_offset_20dp"
+            android:layout_marginTop="@dimen/item_offset_25dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="复制链接"
+                android:textColor="@color/color_6362EB"
+                android:textSize="@dimen/item_offset_14sp" />
+
+
+            <View
+                android:layout_width="@dimen/item_offset_1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="保存图片"
+                android:textColor="@color/color_6362EB"
+                android:textSize="@dimen/item_offset_14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

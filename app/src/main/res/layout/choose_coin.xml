@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_100dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/item_offset_25dp"
+        android:layout_marginRight="@dimen/item_offset_25dp"
+        android:background="@color/color_131e31"
+        android:orientation="vertical">
+
+
+
+
+        <RadioGroup
+            android:id="@+id/sex_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <com.example.project.iwdproject.View.CustomRadioButton
+                android:id="@+id/man_rb"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/item_offset_17sp"
+
+                android:drawablePadding="@dimen/item_offset_14dp"
+
+                android:button="@null"
+                android:gravity="center"
+                android:drawableStart="@drawable/radio_button_state"
+                android:checked="true"
+
+                android:textColor="@color/white"
+
+                android:text="USDT" />
+
+            <com.example.project.iwdproject.View.CustomRadioButton
+                android:id="@+id/woman_rb"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:drawablePadding="@dimen/item_offset_14dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/item_offset_17sp"
+                android:drawableStart="@drawable/radio_button_state"
+                android:button="@null"
+
+
+
+                android:textColor="@color/white"
+                android:text="IWD" />
+        </RadioGroup>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -9,6 +9,14 @@
     </style>
 
 
+    <style name="BottomDialog" parent="@style/AppTheme">
+        <item name="android:windowBackground">@color/themeTextInputLayout_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
 
 
     <!-- Base application theme. -->
@@ -26,6 +34,12 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
         <!--<binder_preferential_notice name="android:windowFullscreen">true</binder_preferential_notice>-->
+    </style>
+
+
+    <style name="AnimDown" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_out</item>
     </style>
 
 

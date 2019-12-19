@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">47.244.218.212</domain>
+    </domain-config>
+
+    <!--抓包需要的-->
+    <debug-overrides>
+        <trust-anchors>
+            <!-- Trust user added CAs while debuggable only -->
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+
+</network-security-config>

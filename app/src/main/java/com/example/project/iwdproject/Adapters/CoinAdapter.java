@@ -8,8 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.project.iwdproject.Beans.MarketBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
 import com.example.project.iwdproject.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,9 +22,11 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
     private Context mContext;
     private OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener;
+    private List<MarketBean.DataBean> mMarketData = new ArrayList<>();
 
-    public CoinAdapter(Context mContext, OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener) {
+    public CoinAdapter(Context mContext,List<MarketBean.DataBean> mMarketData, OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener) {
         this.mContext = mContext;
+        this.mMarketData = mMarketData;
         this.OnRecyclerViewItemDeClickListener = OnRecyclerViewItemDeClickListener;
     }
 
@@ -33,13 +39,14 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        viewHolder.tvName.setText(mMarketData.get(i).getName());
+        viewHolder.tvPrice.setText("$"+mMarketData.get(i).getUsd());
+        viewHolder.tvRisefall.setText(mMarketData.get(i).getChange()+"%");
     }
 
     @Override
     public int getItemCount() {
-        return 10;
-//        return mData != null ? mData.size() : 0;
+        return mMarketData != null ? mMarketData.size() : 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
