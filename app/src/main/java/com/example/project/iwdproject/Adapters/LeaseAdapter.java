@@ -39,13 +39,13 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private Context mContext;
     private OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener;
-    private BalanceBean.DataBean mBalanceData;
-      private List<MyBalanceListBean.DataBean.ListBean> mMyBalanceListData;
+//    private BalanceBean.DataBean mBalanceData;
+      private MyBalanceListBean.DataBean mMyBalanceListData;
 
 
-    public LeaseAdapter(Context mContext, BalanceBean.DataBean mBalanceData, List<MyBalanceListBean.DataBean.ListBean> mMyBalanceListData,OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener) {
+    public LeaseAdapter(Context mContext, MyBalanceListBean.DataBean mMyBalanceListData,OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener) {
         this.mContext = mContext;
-        this.mBalanceData = mBalanceData;
+//        this.mBalanceData = mBalanceData;
         this.mMyBalanceListData = mMyBalanceListData;
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
 //        this.mAccessToken = mAccessToken;
@@ -105,8 +105,8 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 mContext.startActivity(MyIncomeIntent);
             }
         });
-        holder.allNum.setText(mBalanceData.getIWD().getTotal());
-        holder.tvPrice.setText("≈"+mBalanceData.getIWD().getTotal_price());
+        holder.allNum.setText(mMyBalanceListData.getTotal_num()+"");
+        holder.tvPrice.setText("≈"+mMyBalanceListData.getTotal_num());
     }
 
 
@@ -140,7 +140,7 @@ public class LeaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         holder.recycleSecound.setHasFixedSize(true);
         holder.recycleSecound.setFocusableInTouchMode(false);//不需要焦点
 
-        SecoundAdapter mSecoundAdapter = new SecoundAdapter(mContext,mMyBalanceListData, mRecyclerViewItemClickListener);
+        SecoundAdapter mSecoundAdapter = new SecoundAdapter(mContext,mMyBalanceListData.getList(), mRecyclerViewItemClickListener);
         holder.recycleSecound.setAdapter(mSecoundAdapter);
     }
 

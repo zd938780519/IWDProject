@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_131e31">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_offset_42dp"
+        >
+        <TextView
+            android:id="@+id/tv_acctese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:text="18395452545"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_15sp" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_leavel"-->
+            <!--android:layout_toRightOf="@+id/tv_acctese"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/item_offset_10dp"-->
+            <!--android:text="LV.1"-->
+            <!--android:textColor="@color/color_888888"-->
+            <!--android:textSize="@dimen/item_offset_11sp" />-->
+
+
+
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/people_num"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="2"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/item_offset_15sp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="@dimen/item_offset_30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--/>-->
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

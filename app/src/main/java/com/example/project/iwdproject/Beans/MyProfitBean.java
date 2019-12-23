@@ -5,7 +5,7 @@ public class MyProfitBean {
     /**
      * code : 10086
      * message : 获取成功
-     * data : {"total":"2.0200","total_usdt":"0.1","seven":"2.0200","thirty":"2.0200","direct":"0","team":"0","team_profit":0}
+     * data : {"total":"2901.5001","total_usdt":"2959.53","seven":"2918.3335","thirty":"2918.3335","direct":"5","team":"18","team_profit":"2566.7418"}
      */
 
     private int code;
@@ -38,13 +38,13 @@ public class MyProfitBean {
 
     public static class DataBean {
         /**
-         * total : 2.0200
-         * total_usdt : 0.1
-         * seven : 2.0200
-         * thirty : 2.0200
-         * direct : 0
-         * team : 0
-         * team_profit : 0
+         * total : 2901.5001
+         * total_usdt : 2959.53
+         * seven : 2918.3335
+         * thirty : 2918.3335
+         * direct : 5
+         * team : 18
+         * team_profit : 2566.7418
          */
 
         private String total;
@@ -53,7 +53,7 @@ public class MyProfitBean {
         private String thirty;
         private String direct;
         private String team;
-        private int team_profit;
+        private String team_profit;
 
         public String getTotal() {
             return total;
@@ -103,11 +103,11 @@ public class MyProfitBean {
             this.team = team;
         }
 
-        public int getTeam_profit() {
+        public String getTeam_profit() {
             return team_profit;
         }
 
-        public void setTeam_profit(int team_profit) {
+        public void setTeam_profit(String team_profit) {
             this.team_profit = team_profit;
         }
     }

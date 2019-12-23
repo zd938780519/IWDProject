@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project.iwdproject.Beans.BalanceBean;
+import com.example.project.iwdproject.Beans.UsdtBalanceBean;
 import com.example.project.iwdproject.R;
 import com.example.project.iwdproject.RxJavaUtils.RetrofitHttpUtil;
 import com.example.project.iwdproject.Utils.EyesUtils;
@@ -55,8 +56,14 @@ public class RentalAssetsActivity extends BaseActivity {
     TextView tvYue;
     @BindView(R.id.tv_tibi)
     TextView tvTibi;
+    @BindView(R.id.tv_coinname)
+    TextView tvCoinname;
+    @BindView(R.id.tv_tibizhong)
+    TextView tvTibizhong;
     private RentalAssetsActivity instance;
     private BalanceBean.DataBean mBalanceData;
+    private UsdtBalanceBean.DataBean mUsdtBalanceData;
+    private int postion;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,24 +80,85 @@ public class RentalAssetsActivity extends BaseActivity {
     private void initView() {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
-        tvLeft.setText("IDW资产");
-        String token  = SharedPreferencesUtility.getAccessToken(instance);
-        getMybalanceData(token);
+
+        postion = getIntent().getIntExtra("postion", 0);
+        String token = SharedPreferencesUtility.getAccessToken(instance);
+        if (postion == 0) {
+            tvLeft.setText("IDW资产");
+            tvUsername.setText("IDW资产");
+            tvTibizhong.setText("提币中(IDW)");
+            tvCoinname.setText("可用余额(IWD)");
+            getMybalanceData(token);
+
+
+        } else {
+            tvLeft.setText("USDT资产");
+            tvUsername.setText("USDT资产");
+            tvTibizhong.setText("提币中(USTD)");
+            tvCoinname.setText("可用余额(USTD)");
+            getMyUstdbalanceData(token);
+        }
 
     }
 
 
+    /**
+     * 获取我的USTD可用资产
+     */
+    private void getMyUstdbalanceData(final String token) {
+//        Log.e("TAG","token====="+token);
+        String application = "application/json";
+        RetrofitHttpUtil.getApiService()
+                .getMyUstdbalance(token, application)
+                .compose(this.<UsdtBalanceBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<UsdtBalanceBean>transformer())
+                .doFinally(new Action() {
+                    @Override
+                    public void run() throws Exception {
 
+                    }
+                })
+                .subscribe(new BaseObserver<UsdtBalanceBean>() {
+                    @Override
+                    protected void onSuccess(UsdtBalanceBean mUsdtBalanceBean) {
+                        if (mUsdtBalanceBean != null) {
+                            if (mUsdtBalanceBean.getCode() == 10086) {
+                                Toast.makeText(instance, mUsdtBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                mUsdtBalanceData = mUsdtBalanceBean.getData();
+                                tvPrice.setText("≈" + mUsdtBalanceData.getUSDT().getTotal_price());
+                                tvNumber.setText(mUsdtBalanceData.getUSDT().getTotal());
+                                tvYue.setText(mUsdtBalanceData.getUSDT().getNum());
+                                tvTibi.setText(mUsdtBalanceData.getUSDT().getWithdrawal());
+//                                tvYue.setText("可用余额：" + mUsdtBalanceData.getUSDT().getNum());
+                            } else {
+
+                                Toast.makeText(instance, mUsdtBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    protected void onFailed(HttpResponseException responseException) {
+                        super.onFailed(responseException);
+//                        ToastShort.showShortToast("网络错误！");
+                        Toast.makeText(instance, "error code : " + responseException.getStatus(), Toast.LENGTH_SHORT).show();
+//                        ToastShort(instance, "网络有误！");
+                    }
+                });
+
+    }
 
 
     /**
-     * 获取我的总资产
+     * 获取我的IWD总资产
      */
     private void getMybalanceData(final String token) {
 //        Log.e("TAG","token====="+token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getMybalance(token,application)
+                .getMybalance(token, application)
                 .compose(this.<BalanceBean>bindToLifecycle())
                 .compose(SchedulerTransformer.<BalanceBean>transformer())
                 .doFinally(new Action() {
@@ -106,7 +174,7 @@ public class RentalAssetsActivity extends BaseActivity {
                             if (mBalanceBean.getCode() == 10086) {
                                 Toast.makeText(instance, mBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
                                 mBalanceData = mBalanceBean.getData();
-                                tvPrice.setText("≈"+mBalanceData.getIWD().getTotal_price());
+                                tvPrice.setText("≈" + mBalanceData.getIWD().getTotal_price());
                                 tvNumber.setText(mBalanceData.getIWD().getTotal());
                                 tvYue.setText(mBalanceData.getIWD().getNum());
                                 tvTibi.setText(mBalanceData.getIWD().getWithdrawal());
@@ -130,10 +198,8 @@ public class RentalAssetsActivity extends BaseActivity {
     }
 
 
-
-
-    @OnClick({R.id.iv_left, R.id.rl_back, R.id.net_text,R.id.chongbi,R.id.tibi
-            ,R.id.ll_shanchong,R.id.zhuanzhang})
+    @OnClick({R.id.iv_left, R.id.rl_back, R.id.net_text, R.id.chongbi, R.id.tibi
+            , R.id.ll_shanchong, R.id.zhuanzhang})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -144,19 +210,20 @@ public class RentalAssetsActivity extends BaseActivity {
             case R.id.net_text:
                 break;
             case R.id.chongbi:   //冲币
-                Intent PunchIntent = new Intent(instance,PunchActivity.class);
+                Intent PunchIntent = new Intent(instance, PunchActivity.class);
                 startActivity(PunchIntent);
                 break;
             case R.id.tibi:  //提币
-                Intent coinIntent = new Intent(instance,CoinsActivity.class);
-                startActivity(coinIntent);
+                ToastLong(instance,"此功能暂未开放，敬请期待！");
+//                Intent coinIntent = new Intent(instance, CoinsActivity.class);
+//                startActivity(coinIntent);
                 break;
             case R.id.ll_shanchong:  //闪兑
-                Intent FlashIntent = new Intent(instance,FlashActivity.class);
+                Intent FlashIntent = new Intent(instance, FlashActivity.class);
                 startActivity(FlashIntent);
                 break;
             case R.id.zhuanzhang:   //转账
-                Intent TransferIntent = new Intent(instance,TransferActivity.class);
+                Intent TransferIntent = new Intent(instance, TransferActivity.class);
                 startActivity(TransferIntent);
                 break;
         }

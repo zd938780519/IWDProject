@@ -66,14 +66,14 @@ public class MyIncomeAdapter extends RecyclerView.Adapter<MyIncomeAdapter.ViewHo
             viewHolder.tvNumber.setText(mProfitLogData.get(i).getAmount()+"IWD");
 
 
-
-        viewHolder.rlLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent RentalIncomeIntent = new Intent(mContext,RentalIncomeActivity.class);
-                mContext.startActivity(RentalIncomeIntent);
-            }
-        });
+//
+//        viewHolder.rlLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent RentalIncomeIntent = new Intent(mContext,RentalIncomeActivity.class);
+//                mContext.startActivity(RentalIncomeIntent);
+//            }
+//        });
     }
 
     @Override

@@ -24,6 +24,8 @@ import com.example.project.iwdproject.Beans.MyProfitBean;
 import com.example.project.iwdproject.Beans.MyProfitBeanLogBean;
 import com.example.project.iwdproject.Beans.ProfitLogBean;
 import com.example.project.iwdproject.Beans.RegisterBean;
+import com.example.project.iwdproject.Beans.TeamBean;
+import com.example.project.iwdproject.Beans.UsdtBalanceBean;
 import com.example.project.iwdproject.Beans.ZhuanBean;
 
 import io.reactivex.Observable;
@@ -135,6 +137,18 @@ public interface ApiService {
 
 
     /**
+     * 获取我的USTD总资产
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("my_usdt_balance")
+    Observable<UsdtBalanceBean> getMyUstdbalance(@Header("Authorization") String Authorization ,
+                                                 @Header("Content-Type") String header);
+
+
+
+
+    /**
      * 获取可用资产
      * @return
      */
@@ -147,13 +161,24 @@ public interface ApiService {
 
 
     /**
-     * 转账
+     * 手机号转账
      * @return
      */
 //    @FormUrlEncoded
     @POST("transfer")
     Observable<ZhuanBean> getTransfer(@Query("id") int id,@Query("num") String num,@Query("phone") String phone, @Header("Authorization") String Authorization,
                                         @Header("Content-Type") String header);
+
+
+    /**
+     * 邮箱号转账
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("transfer")
+    Observable<ZhuanBean> getEmailTransfer(@Query("id") int id,@Query("num") String num,@Query("email") String email, @Header("Authorization") String Authorization,
+                                      @Header("Content-Type") String header);
+
 
 
 
@@ -270,6 +295,17 @@ fv     */
     @POST("my_profit_log")
     Observable<ProfitLogBean> getProfitLog(@Header("Authorization") String Authorization , @Header("Content-Type") String header);
 
+
+
+
+
+
+    /**
+     * 团队人数
+     */
+//    @FormUrlEncoded
+    @POST("my_team")
+    Observable<TeamBean> getMyTeam(@Header("Authorization") String Authorization , @Header("Content-Type") String header);
 
 
 

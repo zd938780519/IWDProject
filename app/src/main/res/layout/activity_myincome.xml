@@ -289,6 +289,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_tuandui"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_offset_40dp">
 
@@ -350,24 +351,25 @@
                     android:textSize="@dimen/item_offset_14sp" />
 
 
-                <ImageView
-                    android:id="@+id/iv_back2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/item_offset_20dp"
-                    android:layout_centerVertical="true"
-                    android:background="@mipmap/icon_jr_3"/>
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_back2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_marginRight="@dimen/item_offset_20dp"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:background="@mipmap/icon_jr_3"/>-->
 
 
                 <TextView
                     android:id="@+id/tv_benefitsnum"
-                    android:layout_toLeftOf="@+id/iv_back2"
+                    android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/item_offset_20dp"
                     android:text="$0.00000000"
-                    android:layout_marginRight="@dimen/item_offset_10dp"
+
                     android:textColor="@color/color_6362EB"
                     android:textSize="@dimen/item_offset_14sp" />
 

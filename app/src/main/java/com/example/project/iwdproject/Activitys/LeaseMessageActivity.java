@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project.iwdproject.Adapters.LeaseMessageAdapter;
-import com.example.project.iwdproject.Beans.BalanceBean;
 import com.example.project.iwdproject.Beans.BalanceTwoBean;
 import com.example.project.iwdproject.Beans.MyProfitBeanLogBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
@@ -56,6 +55,10 @@ public class LeaseMessageActivity extends BaseActivity {
     TextView tvSeven;
     @BindView(R.id.tv_thirty)
     TextView tvThirty;
+    @BindView(R.id.tv_sever)
+    TextView tvSever;
+    @BindView(R.id.tv_three)
+    TextView tvThree;
     private LeaseMessageActivity instance;
     private List<MyProfitBeanLogBean.DataBean> mMyProfitBeanLogData = new ArrayList<>();
     private int coinId;
@@ -74,11 +77,22 @@ public class LeaseMessageActivity extends BaseActivity {
     private void initView() {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
-        tvLeft.setText("无人机租赁(IWD)");
+
         String token = SharedPreferencesUtility.getAccessToken(instance);
-        coinId = getIntent().getIntExtra("coinId",1);
-        getMybalanceTwoData(token,coinId);
-        getMyProfitBeanLogData(token,coinId);
+        coinId = getIntent().getIntExtra("coinId", 1);
+        if (coinId == 1) {
+            tvLeft.setText("无人机租赁(IWD)");
+            tvCoinname.setText("IWD资产");
+            tvSever.setText("近七天收益(IWD)");
+            tvThree.setText("累计收益(30天/IWD)");
+        } else {
+            tvLeft.setText("无人机租赁(USDT)");
+            tvCoinname.setText("USDT资产");
+            tvSever.setText("近七天收益(USDT)");
+            tvThree.setText("累计收益(30天/USDT)");
+        }
+        getMybalanceTwoData(token, coinId);
+        getMyProfitBeanLogData(token, coinId);
 
         final LinearLayoutManager mTwoLinearLayoutManager = new LinearLayoutManager(instance, LinearLayoutManager.VERTICAL, false);
         leaseMessagerecycle.setLayoutManager(mTwoLinearLayoutManager);
@@ -90,21 +104,14 @@ public class LeaseMessageActivity extends BaseActivity {
     }
 
 
-
-
-
-
-
-
-
     /**
      * 获取我的租赁资产
      */
-    private void getMybalanceTwoData(final String token,int coinId) {
+    private void getMybalanceTwoData(final String token, int coinId) {
 //        Log.e("TAG","token====="+token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getBalanceTwo(coinId,token,application)
+                .getBalanceTwo(coinId, token, application)
                 .compose(this.<BalanceTwoBean>bindToLifecycle())
                 .compose(SchedulerTransformer.<BalanceTwoBean>transformer())
                 .doFinally(new Action() {
@@ -121,7 +128,7 @@ public class LeaseMessageActivity extends BaseActivity {
                                 Toast.makeText(instance, mBalanceTwoBean.getMessage(), Toast.LENGTH_SHORT).show();
 //                                mBalanceData = mBalanceTwoBean.getData();
                                 tvNum.setText(mBalanceTwoBean.getData().getTotal());
-                                tvCoinname.setText(mBalanceTwoBean.getData().getName()+"资产");
+                                tvCoinname.setText(mBalanceTwoBean.getData().getName() + "资产");
                                 tvSeven.setText(mBalanceTwoBean.getData().getSeven());
                                 tvThirty.setText(mBalanceTwoBean.getData().getThirty());
 
@@ -144,17 +151,14 @@ public class LeaseMessageActivity extends BaseActivity {
     }
 
 
-
-
-
     /**
      * 获取我的租赁资产
      */
-    private void getMyProfitBeanLogData(final String token,int coinId) {
+    private void getMyProfitBeanLogData(final String token, int coinId) {
 //        Log.e("TAG","token====="+token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getMyProfitBeanLog(coinId,token,application)
+                .getMyProfitBeanLog(coinId, token, application)
                 .compose(this.<MyProfitBeanLogBean>bindToLifecycle())
                 .compose(SchedulerTransformer.<MyProfitBeanLogBean>transformer())
                 .doFinally(new Action() {
@@ -171,7 +175,7 @@ public class LeaseMessageActivity extends BaseActivity {
                                 Toast.makeText(instance, mMyProfitBeanLogBean.getMessage(), Toast.LENGTH_SHORT).show();
 //                                mBalanceData = mBalanceTwoBean.getData();
                                 mMyProfitBeanLogData = mMyProfitBeanLogBean.getData();
-                                LeaseMessageAdapter mLeaseMessageAdapter = new LeaseMessageAdapter(instance,mMyProfitBeanLogData, onRecyclerViewItemClickListener);
+                                LeaseMessageAdapter mLeaseMessageAdapter = new LeaseMessageAdapter(instance, mMyProfitBeanLogData, onRecyclerViewItemClickListener);
                                 leaseMessagerecycle.setAdapter(mLeaseMessageAdapter);
 
 
@@ -192,10 +196,6 @@ public class LeaseMessageActivity extends BaseActivity {
                     }
                 });
     }
-
-
-
-
 
 
     private OnRecyclerViewItemDeClickListener onRecyclerViewItemClickListener = new OnRecyclerViewItemDeClickListener() {
@@ -228,7 +228,7 @@ public class LeaseMessageActivity extends BaseActivity {
                 finishActivity(instance);
                 break;
             case R.id.ll_lease:   //租赁
-                Intent AvailableLeaseIntent = new Intent(instance,AvailableLeaseActivity.class);
+                Intent AvailableLeaseIntent = new Intent(instance, AvailableLeaseActivity.class);
                 startActivity(AvailableLeaseIntent);
 //                Intent CoinLeaseIntent = new Intent(instance, CoinLeaseActivity.class);
 //                startActivity(CoinLeaseIntent);

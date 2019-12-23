@@ -29,9 +29,9 @@
 
 
         <TextView
+            android:id="@+id/tv_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="18365489587"
             android:textColor="@color/white"
             android:textSize="@dimen/item_offset_20sp" />
@@ -39,17 +39,57 @@
     </LinearLayout>
 
 
-
     <RelativeLayout
+        android:id="@+id/ll_choose"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/item_offset_68dp">
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_28dp"
+        android:background="@color/color_131e31"
+        android:layout_height="@dimen/item_offset_50dp">
+
+        <TextView
+            android:id="@+id/tv_coinname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_11dp"
+            android:text="USDT"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_16sp" />
+
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="转账数量(IWD)"
+            android:text="选择币种"
+            android:textColor="@color/color_888888"
+            android:textSize="@dimen/item_offset_16sp"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/icon_jr_3"
+            android:layout_marginRight="@dimen/item_offset_13dp"
+            android:drawablePadding="@dimen/item_offset_6dp"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+       >
+
+
+        <TextView
+            android:id="@+id/tv_coinname1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="转账数量(USTD)"
             android:textColor="@color/color_888888"
             android:layout_marginLeft="@dimen/item_offset_16dp"
             android:textSize="@dimen/item_offset_14sp"
@@ -83,7 +123,7 @@
             android:id="@+id/et_leasenum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入租赁数量"
+            android:hint="请输入转账数量"
             android:textColorHint="@color/color_888888"
             android:textSize="@dimen/item_offset_15sp"
             android:background="@null"

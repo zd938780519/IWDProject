@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625">
+
+
+    <include layout="@layout/include_toolbar"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/img_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="团队总人数"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/item_offset_16dp"
+            android:textSize="@dimen/item_offset_13sp" />
+
+
+
+        <TextView
+            android:id="@+id/tv_allpeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="151"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/item_offset_20dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_14sp"
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_team"
+        android:layout_marginTop="@dimen/item_offset_20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+
+
+
+
+</LinearLayout>

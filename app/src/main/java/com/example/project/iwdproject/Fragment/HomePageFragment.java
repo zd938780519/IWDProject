@@ -143,13 +143,13 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
-        getFirstHomeData();
+        getFirstHomeData(true);
     }
 
     /**
      * 首页banner  和 滚动通告
      */
-    private void getFirstHomeData() {
+    private void getFirstHomeData(final boolean isRefresh) {
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
                 .getFirstHome(application)
@@ -169,7 +169,7 @@ public class HomePageFragment extends BaseFragment {
                                 Toast.makeText(instance, mFirstHomePageBean.getMessage(), Toast.LENGTH_SHORT).show();
 
                                 mFirstHomeData = mFirstHomePageBean.getData();
-                                getMarketData();
+                                getMarketData(isRefresh);
 
                             } else {
                                 Toast.makeText(instance, mFirstHomePageBean.getMessage(), Toast.LENGTH_SHORT).show();
@@ -195,7 +195,7 @@ public class HomePageFragment extends BaseFragment {
     /**
      * 首页币行情
      */
-    private void getMarketData() {
+    private void getMarketData(final boolean isRefresh) {
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
                 .getMarket(application)
@@ -204,7 +204,11 @@ public class HomePageFragment extends BaseFragment {
                 .doFinally(new Action() {
                     @Override
                     public void run() throws Exception {
-
+                        if (isRefresh) {
+                            secondaryRefreshLayout.finishRefreshing();
+                        }
+//                        else
+//                            secondaryRefreshLayout.finishLoadmore();
                     }
                 })
                 .subscribe(new BaseObserver<MarketBean>() {
@@ -244,6 +248,7 @@ public class HomePageFragment extends BaseFragment {
         @Override
         public void onRefresh(TwinklingRefreshLayout refreshLayout) {
             super.onRefresh(refreshLayout);
+            getFirstHomeData(true);
 //            pageNum = 1;
 //            mAccessToken = SharedPreferencesUtility.getAccessToken(instance);
 ////            getHomePageListDat(true);  //刷新数据

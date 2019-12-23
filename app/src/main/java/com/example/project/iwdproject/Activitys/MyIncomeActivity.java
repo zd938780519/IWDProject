@@ -1,5 +1,6 @@
 package com.example.project.iwdproject.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
@@ -11,9 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.project.iwdproject.Adapters.LeaseAdapter;
 import com.example.project.iwdproject.Adapters.MyIncomeAdapter;
-import com.example.project.iwdproject.Beans.MyBalanceListBean;
 import com.example.project.iwdproject.Beans.MyProfitBean;
 import com.example.project.iwdproject.Beans.ProfitLogBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
@@ -52,8 +51,8 @@ public class MyIncomeActivity extends BaseActivity {
     ImageView ivBack1;
     @BindView(R.id.tv_teamnum)
     TextView tvTeamnum;
-    @BindView(R.id.iv_back2)
-    ImageView ivBack2;
+//    @BindView(R.id.iv_back2)
+//    ImageView ivBack2;
     @BindView(R.id.tv_benefitsnum)
     TextView tvBenefitsnum;
     @BindView(R.id.recycle_myincome)
@@ -66,6 +65,8 @@ public class MyIncomeActivity extends BaseActivity {
     TextView severincome;
     @BindView(R.id.tv_yueincome)
     TextView tvYueincome;
+    @BindView(R.id.rl_tuandui)
+    RelativeLayout rlTuandui;
     private MyIncomeActivity instance;
     private MyProfitBean.DataBean mMyProfitData;
 
@@ -97,10 +98,7 @@ public class MyIncomeActivity extends BaseActivity {
         //      openredRecycle.addItemDecoration(new RecycleViewDivider(this, LinearLayoutManager.HORIZONTAL, R.drawable.divider_mileage)); //自定义分割线样式
 
 
-
     }
-
-
 
 
     /**
@@ -110,7 +108,7 @@ public class MyIncomeActivity extends BaseActivity {
 //        Log.e("TAG","token====="+token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getProfitLog(token,application)
+                .getProfitLog(token, application)
                 .compose(this.<ProfitLogBean>bindToLifecycle())
                 .compose(SchedulerTransformer.<ProfitLogBean>transformer())
                 .doFinally(new Action() {
@@ -128,7 +126,7 @@ public class MyIncomeActivity extends BaseActivity {
                                 mProfitLogData = mProfitLogBean.getData();
 
 
-                                MyIncomeAdapter mMyIncomeAdapter = new MyIncomeAdapter(instance, mProfitLogData,onRecyclerViewItemClickListener);
+                                MyIncomeAdapter mMyIncomeAdapter = new MyIncomeAdapter(instance, mProfitLogData, onRecyclerViewItemClickListener);
                                 recycleMyincome.setAdapter(mMyIncomeAdapter);
                             } else {
 
@@ -147,8 +145,6 @@ public class MyIncomeActivity extends BaseActivity {
                     }
                 });
     }
-
-
 
 
     /**
@@ -175,13 +171,13 @@ public class MyIncomeActivity extends BaseActivity {
                                 getBalanceListData(token);
 //                                Toast.makeText(instance, mMyProfitBean.getMessage(), Toast.LENGTH_SHORT).show();
                                 mMyProfitData = mMyProfitBean.getData();
-                                todatIncome.setText(mMyProfitData.getTotal()+"");
-                                tvTodayusdt.setText("≈"+mMyProfitData.getTotal_usdt()+" USDT");
-                                severincome.setText(mMyProfitData.getSeven()+"");
-                                tvYueincome.setText(mMyProfitData.getThirty()+"");
+                                todatIncome.setText(mMyProfitData.getTotal() + "");
+                                tvTodayusdt.setText("≈" + mMyProfitData.getTotal_usdt() + " USDT");
+                                severincome.setText(mMyProfitData.getSeven() + "");
+                                tvYueincome.setText(mMyProfitData.getThirty() + "");
                                 tvPeonum.setText(mMyProfitData.getDirect());
                                 tvTeamnum.setText(mMyProfitData.getTeam());
-                                tvBenefitsnum.setText(mMyProfitData.getTeam_profit()+"");
+                                tvBenefitsnum.setText(mMyProfitData.getTeam_profit() + "");
 
                             } else {
 
@@ -223,7 +219,7 @@ public class MyIncomeActivity extends BaseActivity {
     };
 
 
-    @OnClick({R.id.iv_left, R.id.rl_back, R.id.iv_back})
+    @OnClick({R.id.iv_left, R.id.rl_back, R.id.iv_back,R.id.rl_tuandui})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -232,6 +228,11 @@ public class MyIncomeActivity extends BaseActivity {
                 finishActivity(instance);
                 break;
             case R.id.iv_back:
+                break;
+            case R.id.rl_tuandui:    //团队人数
+                Intent TeamIntent = new Intent(instance,TeamActivity.class);
+                startActivity(TeamIntent);
+
                 break;
         }
     }

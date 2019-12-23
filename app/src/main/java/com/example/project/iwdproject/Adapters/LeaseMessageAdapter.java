@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.project.iwdproject.Beans.MyProfitBeanLogBean;
@@ -19,11 +20,12 @@ import butterknife.ButterKnife;
 
 public class LeaseMessageAdapter extends RecyclerView.Adapter<LeaseMessageAdapter.ViewHolder> {
 
+
     private Context mContext;
     private OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener;
     private List<MyProfitBeanLogBean.DataBean> mMyProfitBeanLogData;
 
-    public LeaseMessageAdapter(Context mContext,List<MyProfitBeanLogBean.DataBean> mMyProfitBeanLogData, OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener) {
+    public LeaseMessageAdapter(Context mContext, List<MyProfitBeanLogBean.DataBean> mMyProfitBeanLogData, OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener) {
         this.mContext = mContext;
         this.mMyProfitBeanLogData = mMyProfitBeanLogData;
         this.OnRecyclerViewItemDeClickListener = OnRecyclerViewItemDeClickListener;
@@ -39,13 +41,13 @@ public class LeaseMessageAdapter extends RecyclerView.Adapter<LeaseMessageAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         int type = mMyProfitBeanLogData.get(i).getToken();
-        if (type == 1){
+        if (type == 1) {
             viewHolder.tvCoinname.setText("WID");
-        }else if(type == 2){
+        } else if (type == 2) {
             viewHolder.tvCoinname.setText("USDT");
         }
         viewHolder.tvTime.setText(mMyProfitBeanLogData.get(i).getCreated_at());
-        viewHolder.tvZengfu.setText(mMyProfitBeanLogData.get(i).getAmount());
+//        viewHolder.tvZengfu.setText(mMyProfitBeanLogData.get(i).getAmount());
 
     }
 
@@ -55,12 +57,14 @@ public class LeaseMessageAdapter extends RecyclerView.Adapter<LeaseMessageAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.tv_num)
+        TextView tvNum;
         @BindView(R.id.tv_coinname)
         TextView tvCoinname;
         @BindView(R.id.tv_time)
         TextView tvTime;
-        @BindView(R.id.tv_zengfu)
-        TextView tvZengfu;
+        @BindView(R.id.ll_cancel)
+        LinearLayout llCancel;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

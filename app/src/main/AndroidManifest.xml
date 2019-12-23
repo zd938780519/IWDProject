@@ -159,6 +159,10 @@
             android:name=".Activitys.TransferNumActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".Activitys.TeamActivity"
+            android:screenOrientation="portrait" />
+
 
 
 

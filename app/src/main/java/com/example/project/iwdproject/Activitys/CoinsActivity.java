@@ -13,9 +13,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.project.iwdproject.Beans.BalanceBean;
 import com.example.project.iwdproject.Beans.DrawalBean;
 import com.example.project.iwdproject.Beans.FeesBean;
+import com.example.project.iwdproject.Beans.UsdtBalanceBean;
 import com.example.project.iwdproject.R;
 import com.example.project.iwdproject.RxJavaUtils.RetrofitHttpUtil;
 import com.example.project.iwdproject.Utils.PopupWindow.CommonPopupWindow;
@@ -80,6 +83,8 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
     private String text = "USDT";
     private  int type = 2;
     private  String token;
+    private BalanceBean.DataBean mBalanceData;
+    private UsdtBalanceBean.DataBean mUsdtBalanceData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -98,6 +103,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
         tvLeft.setText("提币");
 
         token = SharedPreferencesUtility.getAccessToken(instance);
+        getMyUstdbalanceData(token);
 
 
         etCoinnum.addTextChangedListener(new TextWatcher() {
@@ -105,7 +111,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
-                getFeesData(type,token, s.toString().trim());
+                getFeesData(token, s.toString().trim());
 //                //s:变化后的所有字符
 //                Toast.makeText(getContext(), "变化:"+s+";"+start+";"+before+";"+count, Toast.LENGTH_SHORT).show();
 //                Log.i("Seachal:","变化:"+s+";"+start+";"+before+";"+count);
@@ -134,7 +140,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
     /**
      * 计算手续费
      */
-    private void getFeesData(int type,String token, String num) {
+    private void getFeesData(String token, String num) {
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
                 .getFees(type, num, token, application)
@@ -177,7 +183,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
     /**
      * 提币接口
      */
-    private void getWithdrawalData(int type, String num,String adress,String token) {
+    private void getWithdrawalData( String num,String adress,String token) {
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
                 .getWithdrawal(type, num,adress, token, application)
@@ -217,6 +223,111 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
 
 
 
+
+
+
+
+
+
+
+
+
+    /**
+     * 获取我的USTD可用资产
+     */
+    private void getMyUstdbalanceData(final String token) {
+//        Log.e("TAG","token====="+token);
+        String application = "application/json";
+        RetrofitHttpUtil.getApiService()
+                .getMyUstdbalance(token, application)
+                .compose(this.<UsdtBalanceBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<UsdtBalanceBean>transformer())
+                .doFinally(new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                })
+                .subscribe(new BaseObserver<UsdtBalanceBean>() {
+                    @Override
+                    protected void onSuccess(UsdtBalanceBean mUsdtBalanceBean) {
+                        if (mUsdtBalanceBean != null) {
+                            if (mUsdtBalanceBean.getCode() == 10086) {
+//                                Toast.makeText(instance, mUsdtBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                mUsdtBalanceData = mUsdtBalanceBean.getData();
+                                userNum.setText("可用余额"+mUsdtBalanceData.getUSDT().getNum());
+
+                            } else {
+
+                                Toast.makeText(instance, mUsdtBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    protected void onFailed(HttpResponseException responseException) {
+                        super.onFailed(responseException);
+//                        ToastShort.showShortToast("网络错误！");
+                        Toast.makeText(instance, "error code : " + responseException.getStatus(), Toast.LENGTH_SHORT).show();
+//                        ToastShort(instance, "网络有误！");
+                    }
+                });
+
+    }
+
+
+    /**
+     * 获取我的IWD总资产
+     */
+    private void getMybalanceData(final String token) {
+//        Log.e("TAG","token====="+token);
+        String application = "application/json";
+        RetrofitHttpUtil.getApiService()
+                .getMybalance(token, application)
+                .compose(this.<BalanceBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<BalanceBean>transformer())
+                .doFinally(new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                })
+                .subscribe(new BaseObserver<BalanceBean>() {
+                    @Override
+                    protected void onSuccess(BalanceBean mBalanceBean) {
+                        if (mBalanceBean != null) {
+                            if (mBalanceBean.getCode() == 10086) {
+//                                Toast.makeText(instance, mBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
+                                mBalanceData = mBalanceBean.getData();
+                                userNum.setText("可用余额"+mBalanceData.getIWD().getNum());
+
+
+                            } else {
+
+                                Toast.makeText(instance, mBalanceBean.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    protected void onFailed(HttpResponseException responseException) {
+                        super.onFailed(responseException);
+//                        ToastShort.showShortToast("网络错误！");
+                        Toast.makeText(instance, "error code : " + responseException.getStatus(), Toast.LENGTH_SHORT).show();
+//                        ToastShort(instance, "网络有误！");
+                    }
+                });
+    }
+
+
+
+
+
+
+
     @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_choose,R.id.iv_tibi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -234,7 +345,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
                 String num = etCoinnum.getText().toString().trim();
                 String mAdress = rtAdress.getText().toString().trim();
                 if (!num.equals("") && !mAdress.equals("")){
-                    getWithdrawalData(type,num,mAdress,token);
+                    getWithdrawalData(num,mAdress,token);
                 }else {
                     ToastLong(instance,"地址或提币数量不能为空！");
                 }
@@ -278,6 +389,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
                                 coinname.setText(text);
                                 tvShouxufeiname.setText(text);
                                 tvArrival.setText("0.00000000 USDT");
+                                getMyUstdbalanceData(token);
                                 break;
                             case R.id.woman_rb:
                                 text = "IWD";
@@ -286,6 +398,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
                                 coinname.setText(text);
                                 tvShouxufeiname.setText(text);
                                 tvArrival.setText("0.00000000 IWD");
+                                getMybalanceData(token);
                                 break;
                         }
 //                        CustomRadioButton rb = findViewById(view.checkedId);

@@ -43,15 +43,25 @@ public class SecoundAdapter extends RecyclerView.Adapter<SecoundAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+
+            viewHolder.llRentalassets.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (i==0){
+                    Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
+                        RentalAssetsIntent.putExtra("postion",i);
+                    mContext.startActivity(RentalAssetsIntent);
+                    }else if (i==1){
+                        Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
+                        RentalAssetsIntent.putExtra("postion",i);
+                        mContext.startActivity(RentalAssetsIntent);
+                    }
+                }
+            });
+
 //
-        viewHolder.llRentalassets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
-                mContext.startActivity(RentalAssetsIntent);
-            }
-        });
+
         viewHolder.tvCoinname.setText(mMyBalanceListData.get(i).getName());
         viewHolder.tvSecoundprice.setText("$"+mMyBalanceListData.get(i).getTotal());
         viewHolder.tvNum.setText(mMyBalanceListData.get(i).getNum()+"");

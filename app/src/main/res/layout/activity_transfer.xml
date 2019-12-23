@@ -35,8 +35,8 @@
             android:layout_height="@dimen/item_offset_48dp"
             android:textColorHint="@color/color_888888"
             android:textColor="@color/white"
-            android:inputType="phone"
-            android:hint="请输入手机号码"
+            android:inputType="text"
+            android:hint="请输入账号"
             android:background="@null"/>
 
 
