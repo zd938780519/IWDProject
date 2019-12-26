@@ -9,12 +9,20 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.project.iwdproject.Beans.FeesBean;
+import com.example.project.iwdproject.Beans.PayPasswordBean;
 import com.example.project.iwdproject.R;
+import com.example.project.iwdproject.RxJavaUtils.RetrofitHttpUtil;
+import com.example.project.iwdproject.Utils.SharedPreferencesUtility;
 import com.mchsdk.paysdk.mylibrary.BaseActivity;
+import com.mchsdk.paysdk.retrofitutils.result.HttpResponseException;
+import com.mchsdk.paysdk.retrofitutils.rxjava.observable.SchedulerTransformer;
+import com.mchsdk.paysdk.retrofitutils.rxjava.observer.BaseObserver;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.functions.Action;
 
 public class PaypassActivity extends BaseActivity {
     @BindView(R.id.iv_left)
@@ -50,6 +58,7 @@ public class PaypassActivity extends BaseActivity {
     @BindView(R.id.ll_sure)
     LinearLayout llSure;
     private PaypassActivity instance;
+    private String token;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,10 +75,56 @@ public class PaypassActivity extends BaseActivity {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
         tvLeft.setText("支付密码");
+        token = SharedPreferencesUtility.getAccessToken(instance);
     }
 
 
-    @OnClick({R.id.iv_left, R.id.rl_back, R.id.tv_tilte})
+
+
+    /**
+     * 修改和设置支付密码
+     */
+    private void getPayPasswordData(String payPassWord,String loginPass) {
+        String application = "application/json";
+        RetrofitHttpUtil.getApiService()
+                .getPayPassword(payPassWord, loginPass, token, application)
+                .compose(this.<PayPasswordBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<PayPasswordBean>transformer())
+                .doFinally(new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                })
+                .subscribe(new BaseObserver<PayPasswordBean>() {
+                    @Override
+                    protected void onSuccess(PayPasswordBean mPayPasswordBean) {
+                        if (mPayPasswordBean != null) {
+                            if (mPayPasswordBean.getCode() == 10086) {
+                                ToastShort(instance, mPayPasswordBean.getMessage());
+                                finishActivity(instance);
+
+                            } else {
+                                ToastShort(instance, mPayPasswordBean.getMessage());
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    protected void onFailed(HttpResponseException responseException) {
+                        super.onFailed(responseException);
+//                        ToastShort.showShortToast("网络错误！");
+                        ToastShort(instance, "error code : " + responseException.getStatus());
+//                        ToastShort(instance, "网络有误！");
+                    }
+                });
+    }
+
+
+
+
+    @OnClick({R.id.iv_left, R.id.rl_back, R.id.tv_tilte,R.id.ll_sure})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -78,6 +133,23 @@ public class PaypassActivity extends BaseActivity {
                 finishActivity(instance);
                 break;
             case R.id.tv_tilte:
+                break;
+            case R.id.ll_sure:   //修改支付密码
+                String massword = etPassword.getText().toString().trim();
+                String mpaypass = etNewpaypass.getText().toString().trim();
+                String mNextpaypass = etNextpaypass.getText().toString().trim();
+                if (!massword.equals("")){
+                    if (!mpaypass.equals("") && !mNextpaypass.equals("")){
+                        if (mpaypass.equals(mNextpaypass)){
+                            getPayPasswordData(mpaypass,massword);
+                        }
+                    }else {
+                        ToastLong(instance,"支付密码不能为空！");
+                    }
+                }else {
+                    ToastLong(instance,"登录密码不能为空！");
+                }
+
                 break;
         }
     }

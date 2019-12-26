@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
 import com.example.project.iwdproject.Fragment.FindFragment;
+import com.example.project.iwdproject.Fragment.FindTwoFragment;
 import com.example.project.iwdproject.Fragment.HomePageFragment;
 import com.example.project.iwdproject.Fragment.LeaseFragment;
 import com.example.project.iwdproject.Fragment.SelfFragment;
@@ -67,7 +68,8 @@ public class MainActivity extends BaseActivity {
             super(fm);
             fragments.add(HomePageFragment.newInstance(titles[0]));  //首页
             fragments.add(LeaseFragment.newInstance(titles[1]));   //租赁
-            fragments.add(FindFragment.newInstance(titles[2]));  //发现
+            fragments.add(FindTwoFragment.newInstance(titles[2]));  //发现
+//            fragments.add(FindFragment.newInstance(titles[2]));  //发现
             fragments.add(SelfFragment.newInstance(titles[3]));   //我的
         }
 

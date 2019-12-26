@@ -79,7 +79,7 @@ public class TransferNumActivity extends BaseActivity implements CommonPopupWind
     private String mAccount;
     private int type = 2;
     private RadioGroup sex_rg;
-    private String text = "USTD";
+    private String text = "USDT";
 
     private CommonPopupWindow popupWindow;
     private BalanceBean.DataBean mBalanceData;

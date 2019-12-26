@@ -22,7 +22,7 @@
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="李松"
+                android:text="IWD"
                 android:textColor="@color/white"
                 android:textSize="@dimen/item_offset_16dp" />
 

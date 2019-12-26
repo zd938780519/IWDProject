@@ -1,5 +1,6 @@
 package com.example.project.iwdproject.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
@@ -101,6 +102,8 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
         tvLeft.setText("提币");
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("记录");
 
         token = SharedPreferencesUtility.getAccessToken(instance);
         getMyUstdbalanceData(token);
@@ -328,7 +331,7 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
 
 
 
-    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_choose,R.id.iv_tibi})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_choose,R.id.iv_tibi,R.id.rl_right})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -350,6 +353,12 @@ public class CoinsActivity extends BaseActivity implements CommonPopupWindow.Vie
                     ToastLong(instance,"地址或提币数量不能为空！");
                 }
 
+                break;
+            case R.id.rl_right:
+                Intent TransferRecordIntent = new Intent(instance,TransferRecordActivity.class);
+                TransferRecordIntent.putExtra("typecoin","提币记录");
+                TransferRecordIntent.putExtra("type",4);
+                startActivity(TransferRecordIntent);
                 break;
         }
     }

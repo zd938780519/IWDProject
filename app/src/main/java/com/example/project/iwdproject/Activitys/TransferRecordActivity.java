@@ -11,9 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.project.iwdproject.Adapters.BillAdapter;
-import com.example.project.iwdproject.Adapters.LeaseAdapter;
 import com.example.project.iwdproject.Beans.RecordBean;
-import com.example.project.iwdproject.Beans.UpDataPassBean;
 import com.example.project.iwdproject.Listeners.OnRecyclerViewItemDeClickListener;
 import com.example.project.iwdproject.R;
 import com.example.project.iwdproject.RxJavaUtils.RetrofitHttpUtil;
@@ -31,7 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.functions.Action;
 
-public class BillActivity extends BaseActivity {
+public class TransferRecordActivity extends BaseActivity {
     @BindView(R.id.iv_left)
     ImageView ivLeft;
     @BindView(R.id.tv_left)
@@ -50,40 +48,43 @@ public class BillActivity extends BaseActivity {
     RelativeLayout rlTitle;
     @BindView(R.id.titleBar)
     LinearLayout titleBar;
-    @BindView(R.id.recycle_bill)
-    RecyclerView recycleBill;
-    private BillActivity instance;
+    @BindView(R.id.recycle_trans)
+    RecyclerView recycleTrans;
+    private TransferRecordActivity instance;
+    private String typecoin;
+    private int type;
     private String token;
     private List<RecordBean.DataBean> mRecordData = new ArrayList<>();
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bill);
+        setContentView(R.layout.activity_transrecord);
         ButterKnife.bind(this);
         instance = this;
         addActivity(instance);
         initView();
-
     }
 
 
     private void initView() {
+        typecoin = getIntent().getStringExtra("typecoin");
+        type = getIntent().getIntExtra("type",1);
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
-        tvLeft.setText("账单");
+        tvLeft.setText(typecoin);
+
         token = SharedPreferencesUtility.getAccessToken(instance);
         final LinearLayoutManager mTwoLinearLayoutManager = new LinearLayoutManager(instance, LinearLayoutManager.VERTICAL, false);
-        recycleBill.setLayoutManager(mTwoLinearLayoutManager);
-        recycleBill.setNestedScrollingEnabled(false);
+        recycleTrans.setLayoutManager(mTwoLinearLayoutManager);
+        recycleTrans.setNestedScrollingEnabled(false);
 //        recyclerview.addItemDecoration(new DividerItemDecoration(instance, DividerItemDecoration.VERTICAL));   //添加分割线
         //      openredRecycle.addItemDecoration(new RecycleViewDivider(this, LinearLayoutManager.HORIZONTAL, R.drawable.divider_mileage)); //自定义分割线样式
-        recycleBill.setHasFixedSize(true);
-
-        getPayPasswordData();
+        recycleTrans.setHasFixedSize(true);
+        getPayPasswordData(type);
 
     }
-
 
 
 
@@ -94,10 +95,10 @@ public class BillActivity extends BaseActivity {
     /**
      * 1:充值 2:USDT收益 3:IWD收益 4:提现 5:邀请奖励 6: 7:场内交易 8:租赁 9解除租赁
      */
-    private void getPayPasswordData() {
+    private void getPayPasswordData(int type) {
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getRecord(7,token, application)
+                .getRecord(type,token, application)
                 .compose(this.<RecordBean>bindToLifecycle())
                 .compose(SchedulerTransformer.<RecordBean>transformer())
                 .doFinally(new Action() {
@@ -114,7 +115,7 @@ public class BillActivity extends BaseActivity {
                                 ToastShort(instance, mRecordBean.getMessage());
                                 mRecordData = mRecordBean.getData();
                                 BillAdapter mBillAdapter = new BillAdapter(instance, mRecordData, onRecyclerViewItemClickListener);
-                                recycleBill.setAdapter(mBillAdapter);
+                                recycleTrans.setAdapter(mBillAdapter);
 
                             } else {
                                 ToastShort(instance, mRecordBean.getMessage());
@@ -132,6 +133,8 @@ public class BillActivity extends BaseActivity {
                     }
                 });
     }
+
+
 
 
 
@@ -158,15 +161,15 @@ public class BillActivity extends BaseActivity {
 
 
 
-    @OnClick({R.id.iv_left, R.id.rl_back, R.id.iv_right})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
                 break;
+            case R.id.tv_left:
+                break;
             case R.id.rl_back:
                 finishActivity(instance);
-                break;
-            case R.id.iv_right:
                 break;
         }
     }

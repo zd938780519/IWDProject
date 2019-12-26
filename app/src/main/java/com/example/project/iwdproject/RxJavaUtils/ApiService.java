@@ -16,15 +16,20 @@ import com.example.project.iwdproject.Beans.FirstHomePageBean;
 import com.example.project.iwdproject.Beans.FlashBean;
 import com.example.project.iwdproject.Beans.InvitationCodeBean;
 import com.example.project.iwdproject.Beans.LeaseBean;
+import com.example.project.iwdproject.Beans.LeaseDetailBean;
+import com.example.project.iwdproject.Beans.LeaseStopBean;
 import com.example.project.iwdproject.Beans.LoginBean;
 import com.example.project.iwdproject.Beans.MarketBean;
 import com.example.project.iwdproject.Beans.ModifyPassWordBean;
 import com.example.project.iwdproject.Beans.MyBalanceListBean;
 import com.example.project.iwdproject.Beans.MyProfitBean;
 import com.example.project.iwdproject.Beans.MyProfitBeanLogBean;
+import com.example.project.iwdproject.Beans.PayPasswordBean;
 import com.example.project.iwdproject.Beans.ProfitLogBean;
+import com.example.project.iwdproject.Beans.RecordBean;
 import com.example.project.iwdproject.Beans.RegisterBean;
 import com.example.project.iwdproject.Beans.TeamBean;
+import com.example.project.iwdproject.Beans.UpDataPassBean;
 import com.example.project.iwdproject.Beans.UsdtBalanceBean;
 import com.example.project.iwdproject.Beans.ZhuanBean;
 
@@ -124,6 +129,20 @@ public interface ApiService {
            @Header("Authorization") String Authorization ,@Header("Content-Type") String header);
 
 
+
+
+
+    /**
+     * 获取租赁详情
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("lease_detail")
+    Observable<LeaseDetailBean> getLeaseDetail(@Query("id") int id,
+                                                  @Header("Authorization") String Authorization , @Header("Content-Type") String header);
+
+
+
     /**
      * 获取我的总资产
      * @return
@@ -203,7 +222,7 @@ public interface ApiService {
      */
 //    @FormUrlEncoded
     @POST("lease")
-    Observable<LeaseBean> getLease(@Query("num") String  num, @Header("Authorization") String Authorization,
+    Observable<LeaseBean> getLease(@Query("num") String  num, @Query("token_id") int token_id,@Header("Authorization") String Authorization,
                                    @Header("Content-Type") String header);
 
 
@@ -215,6 +234,17 @@ public interface ApiService {
     @POST("my_profit_log2")
     Observable<MyProfitBeanLogBean> getMyProfitBeanLog(@Query("id") int id, @Header("Authorization") String Authorization,
                                                   @Header("Content-Type") String header);
+
+
+
+    /**
+     * 取消租赁
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("lease_stop")
+    Observable<LeaseStopBean> getLeaseStop(@Query("id") int id, @Header("Authorization") String Authorization,
+                                                 @Header("Content-Type") String header);
 
 
     /**
@@ -237,6 +267,45 @@ public interface ApiService {
     @POST("charge")
     Observable<FeesBean> getFees(@Query("id") int id,@Query("num") String num,@Header("Authorization") String Authorization ,
                                  @Header("Content-Type") String header);
+
+
+
+
+
+    /**
+     * 修改和设置支付密码
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("update_pay_password")
+    Observable<PayPasswordBean> getPayPassword(@Query("pay_password") String pay_password, @Query("password") String password, @Header("Authorization") String Authorization ,
+                                        @Header("Content-Type") String header);
+
+
+
+
+    /**
+     * 修改登录密码
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("update_password2")
+    Observable<UpDataPassBean> getUpDataPass(@Query("new_password") String new_password, @Query("password") String password, @Header("Authorization") String Authorization ,
+                                              @Header("Content-Type") String header);
+
+
+
+
+
+
+    /**
+     * 1:充值 2:USDT收益 3:IWD收益 4:提现 5:邀请奖励 6: 7:场内交易 8:租赁 9解除租赁
+     * @return
+     */
+//    @FormUrlEncoded
+    @POST("my_log")
+    Observable<RecordBean> getRecord(@Query("id") int id, @Header("Authorization") String Authorization ,
+                                         @Header("Content-Type") String header);
 
 
 

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_061625">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@mipmap/bg_14">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:layout_alignParentLeft="true"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:src="@mipmap/nav_back_3"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="@dimen/item_offset_15dp" />
+
+                <TextView
+                    android:id="@+id/tv_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="取消租赁"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/item_offset_17sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_left" />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/item_offset_100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+
+            android:background="@drawable/shape_btn_bluehei"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_offset_20dp"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:text="总资产(USDT)"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_allnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100.00000"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/item_offset_8dp"
+                android:layout_marginBottom="@dimen/item_offset_30dp"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:textSize="@dimen/item_offset_18sp"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="详情"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:layout_marginTop="@dimen/item_offset_16dp"
+        android:layout_marginBottom="@dimen/item_offset_10dp"
+        android:textColor="@color/color_888888"
+        android:textSize="@dimen/item_offset_15sp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_btn_bluehei"
+        android:layout_marginRight="@dimen/item_offset_15dp"
+        android:layout_marginLeft="@dimen/item_offset_15dp"
+        android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_50dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="存入时间"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_16sp"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2019-02-03"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/item_offset_15dp"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:background="@color/color_888888"/>
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_44dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已租天数"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_16sp"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/item_offset_16dp"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:background="@color/color_888888"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_44dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="资产(USDT)"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_16sp"
+                />
+
+
+            <!--<TextView-->
+               <!---->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="2019-02-03"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="@dimen/item_offset_15dp"-->
+                <!--android:textSize="@dimen/item_offset_13sp"-->
+                <!--/>-->
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:background="@color/color_888888"/>
+
+
+
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_44dp">
+
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="数量"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_16sp"
+                />
+
+
+
+
+            <TextView
+                android:id="@+id/et_coinnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/item_offset_16dp"
+                android:textSize="@dimen/item_offset_13sp"
+                />
+
+
+            <!--<EditText-->
+                <!--android:id="@+id/et_coinnum"-->
+                <!--android:layout_toRightOf="@+id/tv_num"-->
+                <!--android:layout_marginLeft="@dimen/item_offset_18dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@null"-->
+                <!--android:inputType="numberDecimal"-->
+                <!--android:textColorHint="@color/color_888888"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="@dimen/item_offset_15dp"-->
+                <!--android:textSize="@dimen/item_offset_13sp"-->
+                <!--/>-->
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="@dimen/item_offset_15dp"
+            android:layout_marginLeft="@dimen/item_offset_15dp"
+            android:background="@color/color_888888"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_offset_44dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_baifenlv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USDT租赁解约需扣5%的手续费"
+                android:layout_marginLeft="@dimen/item_offset_15dp"
+                android:textColor="@color/color_888888"
+                android:textSize="@dimen/item_offset_14sp"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_clease"
+        android:layout_width="@dimen/item_offset_150dp"
+        android:layout_height="@dimen/item_offset_30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/item_offset_40dp"
+        android:gravity="center"
+        android:background="@drawable/shape_btn_blue">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消租赁"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_offset_14sp" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

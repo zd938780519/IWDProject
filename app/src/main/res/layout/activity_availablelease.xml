@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/item_offset_30dp"
-                    android:text="可用资产(DSDT)"
+                    android:text="可用资产(USDT)"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/color_888888"
                     android:textSize="@dimen/item_offset_14sp" />
@@ -241,6 +241,7 @@
             android:layout_marginRight="@dimen/item_offset_100dp"
             android:background="@drawable/shape_btn_blue"
             android:layout_marginBottom="@dimen/item_offset_18dp"
+            android:visibility="visible"
             android:gravity="center"
             android:layout_height="@dimen/item_offset_30dp">
 

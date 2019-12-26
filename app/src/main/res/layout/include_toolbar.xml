@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="我的收益"
-                android:textColor="@color/color_1A1B1F"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 android:layout_centerInParent="true"
                 android:visibility="gone"

@@ -62,10 +62,12 @@ public class TransferActivity extends BaseActivity {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
         tvLeft.setText("转账");
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("记录");
     }
 
 
-    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back,R.id.ll_nextbtn})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back,R.id.ll_nextbtn,R.id.rl_right})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -84,6 +86,12 @@ public class TransferActivity extends BaseActivity {
                 }else {
                     ToastLong(instance,"账户不能为空！");
                 }
+                break;
+            case R.id.rl_right:    //转账记录
+                Intent TransferRecordIntent = new Intent(instance,TransferRecordActivity.class);
+                TransferRecordIntent.putExtra("typecoin","转账记录");
+                TransferRecordIntent.putExtra("type",7);
+                startActivity(TransferRecordIntent);
                 break;
         }
     }

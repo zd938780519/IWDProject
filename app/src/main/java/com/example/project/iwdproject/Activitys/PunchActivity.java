@@ -1,5 +1,6 @@
 package com.example.project.iwdproject.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -79,12 +80,14 @@ public class PunchActivity extends BaseActivity implements CommonPopupWindow.Vie
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
         tvLeft.setText("充值");
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("记录");
         token = SharedPreferencesUtility.getAccessToken(instance);
         getEtcInfoData(token);
     }
 
 
-    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_choose,R.id.ll_copy})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_choose,R.id.ll_copy,R.id.rl_right})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -100,6 +103,12 @@ public class PunchActivity extends BaseActivity implements CommonPopupWindow.Vie
             case R.id.ll_copy:
                 String mAdress = tvAdress.getText().toString().trim();
                 PackagUtils.copy(instance,mAdress);
+                break;
+            case R.id.rl_right:    //冲币记录
+                Intent TransferRecordIntent = new Intent(instance,TransferRecordActivity.class);
+                TransferRecordIntent.putExtra("typecoin","充值记录");
+                TransferRecordIntent.putExtra("type",1);
+                startActivity(TransferRecordIntent);
                 break;
         }
     }

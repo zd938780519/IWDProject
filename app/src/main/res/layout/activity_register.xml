@@ -317,7 +317,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我以阅读并同意"
+                    android:text="我已阅读并同意"
                     android:layout_marginLeft="@dimen/item_offset_6dp"
                     android:textColor="@color/color_888888"
                     android:textSize="@dimen/item_offset_13sp"

@@ -2,8 +2,8 @@ package com.example.project.iwdproject.Activitys;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.project.iwdproject.Beans.ActiveUsdtBean;
-import com.example.project.iwdproject.Beans.LeaseBean;
+import com.example.project.iwdproject.Beans.LeaseDetailBean;
+import com.example.project.iwdproject.Beans.LeaseStopBean;
 import com.example.project.iwdproject.R;
 import com.example.project.iwdproject.RxJavaUtils.RetrofitHttpUtil;
 import com.example.project.iwdproject.Utils.EyesUtils;
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.functions.Action;
 
-public class AvailableLeaseActivity extends BaseActivity {
+public class CancelLeaseActivity extends BaseActivity {
     @BindView(R.id.iv_left)
     ImageView ivLeft;
     @BindView(R.id.tv_left)
@@ -36,71 +36,77 @@ public class AvailableLeaseActivity extends BaseActivity {
     RelativeLayout rlBack;
     @BindView(R.id.rl_title)
     RelativeLayout rlTitle;
-    @BindView(R.id.tv_allcoin)
-    TextView tvAllcoin;
-    @BindView(R.id.check)
-    CheckBox check;
-    @BindView(R.id.user_agreement)
-    TextView userAgreement;
-    @BindView(R.id.ll_lease)
-    LinearLayout llLease;
-    @BindView(R.id.et_leasenum)
-    EditText etLeasenum;
-    @BindView(R.id.tv_usercoin)
-    TextView tvUsercoin;
-    private AvailableLeaseActivity instance;
+    @BindView(R.id.tv_time)
+    TextView tvTime;
+    @BindView(R.id.tv_day)
+    TextView tvDay;
+    @BindView(R.id.tv_num)
+    TextView tvNum;
+    @BindView(R.id.et_coinnum)
+    TextView etCoinnum;
+    @BindView(R.id.ll_clease)
+    LinearLayout llClease;
+    @BindView(R.id.tv_allnum)
+    TextView tvAllnum;
+    @BindView(R.id.tv_baifenlv)
+    TextView tvBaifenlv;
+    private CancelLeaseActivity instance;
     private String token;
-    private int coinId;
+    private int id;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_availablelease);
+        setContentView(R.layout.activity_cancellease);
         ButterKnife.bind(this);
         instance = this;
-        EyesUtils.setImmersionStateMode(instance);  //实现沉浸
         addActivity(instance);
+        EyesUtils.setImmersionStateMode(instance);  //实现沉浸
         initView();
     }
-
 
     private void initView() {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
-        tvLeft.setText("租赁");
-        coinId = getIntent().getIntExtra("coinId",2);
+        tvLeft.setText("取消租赁");
+        id = getIntent().getIntExtra("id",0);
         token = SharedPreferencesUtility.getAccessToken(instance);
-        getMybalanceData(token);
+
+        getLeaseDetailData();
     }
 
 
     /**
-     * 获取我的可用资产
+     * 获取租赁详情
      */
-    private void getMybalanceData(final String token) {
-//        Log.e("TAG","token====="+token);
+    private void getLeaseDetailData() {
+        Log.e("TAG", "token=====" + token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getActiveUsdt(token, application)
-                .compose(this.<ActiveUsdtBean>bindToLifecycle())
-                .compose(SchedulerTransformer.<ActiveUsdtBean>transformer())
+                .getLeaseDetail(id, token, application)
+                .compose(this.<LeaseDetailBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<LeaseDetailBean>transformer())
                 .doFinally(new Action() {
                     @Override
                     public void run() throws Exception {
 
                     }
                 })
-                .subscribe(new BaseObserver<ActiveUsdtBean>() {
+                .subscribe(new BaseObserver<LeaseDetailBean>() {
                     @Override
-                    protected void onSuccess(ActiveUsdtBean mActiveUsdtBean) {
-                        if (mActiveUsdtBean != null) {
-                            if (mActiveUsdtBean.getCode() == 10086) {
-                                Toast.makeText(instance, mActiveUsdtBean.getMessage(), Toast.LENGTH_SHORT).show();
+                    protected void onSuccess(LeaseDetailBean mLeaseDetailBean) {
+                        if (mLeaseDetailBean != null) {
+                            if (mLeaseDetailBean.getCode() == 10086) {
+                                ToastShort(instance, mLeaseDetailBean.getMessage());
+                                tvAllnum.setText(mLeaseDetailBean.getData().getTotal());
+                                tvTime.setText(mLeaseDetailBean.getData().getCreated_at());
+                                tvDay.setText(mLeaseDetailBean.getData().getDays() + "");
+                                tvBaifenlv.setText("USDT租赁解约需扣"+mLeaseDetailBean.getData().getFee()+"的手续费");
+                                etCoinnum.setText(mLeaseDetailBean.getData().getTotal());
+//                                id = mLeaseDetailBean.getData().getId();
 
-                                tvUsercoin.setText(mActiveUsdtBean.getData().getUsdt()+"");
                             } else {
-
-                                Toast.makeText(instance, mActiveUsdtBean.getMessage(), Toast.LENGTH_SHORT).show();
+                                ToastShort(instance, mLeaseDetailBean.getMessage());
                             }
 
                         }
@@ -110,41 +116,50 @@ public class AvailableLeaseActivity extends BaseActivity {
                     protected void onFailed(HttpResponseException responseException) {
                         super.onFailed(responseException);
 //                        ToastShort.showShortToast("网络错误！");
-                        Toast.makeText(instance, "error code : " + responseException.getStatus(), Toast.LENGTH_SHORT).show();
+                        ToastShort(instance, "error code : " + responseException.getStatus());
 //                        ToastShort(instance, "网络有误！");
                     }
                 });
     }
 
 
+
+
+
+
+
+
     /**
-     * 租赁
+     * 取消租赁
      */
-    private void getMybalanceTwoData(String num) {
+    private void getLeaseStopData() {
 //        Log.e("TAG","token====="+token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getLease(num, coinId,token, application)
-                .compose(this.<LeaseBean>bindToLifecycle())
-                .compose(SchedulerTransformer.<LeaseBean>transformer())
+                .getLeaseStop(id, token, application)
+                .compose(this.<LeaseStopBean>bindToLifecycle())
+                .compose(SchedulerTransformer.<LeaseStopBean>transformer())
                 .doFinally(new Action() {
                     @Override
                     public void run() throws Exception {
 
                     }
                 })
-                .subscribe(new BaseObserver<LeaseBean>() {
+                .subscribe(new BaseObserver<LeaseStopBean>() {
                     @Override
-                    protected void onSuccess(LeaseBean mLeaseBean) {
-                        if (mLeaseBean != null) {
-                            if (mLeaseBean.getCode() == 10086) {
-                                Toast.makeText(instance, mLeaseBean.getMessage(), Toast.LENGTH_SHORT).show();
-                                finishActivity(instance);
+                    protected void onSuccess(LeaseStopBean mLeaseStopBean) {
+                        if (mLeaseStopBean != null) {
+                            if (mLeaseStopBean.getCode() == 10086) {
+                                Toast.makeText(instance, mLeaseStopBean.getMessage(), Toast.LENGTH_SHORT).show();
 //                                mBalanceData = mBalanceTwoBean.getData();
+                                finishActivity(instance);
+
+
+
 
                             } else {
 
-                                Toast.makeText(instance, mLeaseBean.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(instance, mLeaseStopBean.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                         }
@@ -161,7 +176,7 @@ public class AvailableLeaseActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_lease})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back,R.id.ll_clease})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -171,12 +186,8 @@ public class AvailableLeaseActivity extends BaseActivity {
             case R.id.rl_back:
                 finishActivity(instance);
                 break;
-            case R.id.ll_lease:   //租赁
-                String mLeasenum = etLeasenum.getText().toString().trim();
-                if (!mLeasenum.equals("")) {
-                    getMybalanceTwoData(mLeasenum);
-                }
-
+            case R.id.ll_clease:
+                getLeaseStopData();
                 break;
         }
     }

@@ -39,7 +39,7 @@ public class LeaseMessageAdapter extends RecyclerView.Adapter<LeaseMessageAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         int type = mMyProfitBeanLogData.get(i).getToken();
         if (type == 1) {
             viewHolder.tvCoinname.setText("WID");
@@ -47,6 +47,21 @@ public class LeaseMessageAdapter extends RecyclerView.Adapter<LeaseMessageAdapte
             viewHolder.tvCoinname.setText("USDT");
         }
         viewHolder.tvTime.setText(mMyProfitBeanLogData.get(i).getCreated_at());
+        viewHolder.tvNum.setText(mMyProfitBeanLogData.get(i).getAmount()+"");  //租赁数量
+        if (mMyProfitBeanLogData.get(i).getStatus() == 1 ){
+
+            viewHolder.tvClose.setText("取消租赁");
+            viewHolder.llCancel.setOnClickListener(new View.OnClickListener() {   //取消租赁
+                @Override
+                public void onClick(View v) {
+                    OnRecyclerViewItemDeClickListener.onRecyclerViewItemClicked(i,viewHolder);
+                }
+            });
+
+        }else if (mMyProfitBeanLogData.get(i).getStatus() == 3){
+            viewHolder.tvClose.setText("已取消");
+        }
+
 //        viewHolder.tvZengfu.setText(mMyProfitBeanLogData.get(i).getAmount());
 
     }
@@ -65,6 +80,8 @@ public class LeaseMessageAdapter extends RecyclerView.Adapter<LeaseMessageAdapte
         TextView tvTime;
         @BindView(R.id.ll_cancel)
         LinearLayout llCancel;
+        @BindView(R.id.tv_close)
+        TextView tvClose;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

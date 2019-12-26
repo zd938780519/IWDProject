@@ -164,6 +164,16 @@
             android:screenOrientation="portrait" />
 
 
+        <activity
+            android:name=".Activitys.CancelLeaseActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".Activitys.TransferRecordActivity"
+            android:screenOrientation="portrait" />
+
+
 
 
 

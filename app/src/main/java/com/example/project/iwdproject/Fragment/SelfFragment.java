@@ -42,12 +42,9 @@ public class SelfFragment extends BaseFragment {
     ImageView iv2;
     @BindView(R.id.rl_pleasecode)
     RelativeLayout rlPleasecode;
-    @BindView(R.id.iv_3)
-    ImageView iv3;
-    @BindView(R.id.iv_back1)
-    ImageView ivBack1;
-    @BindView(R.id.rl_lauagus)
-    RelativeLayout rlLauagus;
+
+
+
     @BindView(R.id.iv_5)
     ImageView iv5;
     @BindView(R.id.iv_back5)
@@ -127,7 +124,7 @@ public class SelfFragment extends BaseFragment {
         unbinder1.unbind();
     }
 
-    @OnClick({R.id.rl_pleasecode, R.id.rl_lauagus, R.id.rl_loginpass, R.id.rl_paypass, R.id.rl_bindpone,
+    @OnClick({R.id.rl_pleasecode, R.id.rl_loginpass, R.id.rl_paypass, R.id.rl_bindpone,
             R.id.rl_agreement, R.id.rl_update, R.id.rl_realname, R.id.ll_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -136,8 +133,7 @@ public class SelfFragment extends BaseFragment {
                 startActivity(PleaseCodeIntent);
 
                 break;
-            case R.id.rl_lauagus:
-                break;
+
             case R.id.rl_loginpass:   //修改登录密码
                 Intent LoginPassWordIntent = new Intent(instance, LoginPassWordActivity.class);
                 startActivity(LoginPassWordIntent);
