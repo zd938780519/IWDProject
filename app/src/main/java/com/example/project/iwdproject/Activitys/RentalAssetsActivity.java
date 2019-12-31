@@ -100,8 +100,8 @@ public class RentalAssetsActivity extends BaseActivity {
         } else if (postion==1){
             tvLeft.setText("USDT资产");
             tvUsername.setText("USDT资产");
-            tvTibizhong.setText("提币中(USTD)");
-            tvCoinname.setText("可用余额(USTD)");
+            tvTibizhong.setText("提币中(USDT)");
+            tvCoinname.setText("可用余额(USDT)");
             getMyUstdbalanceData(token);
         }else if (postion ==2){
             tvLeft.setText("IDW资产");
@@ -112,8 +112,8 @@ public class RentalAssetsActivity extends BaseActivity {
         }else if (postion ==3){
             tvLeft.setText("USDT资产");
             tvUsername.setText("USDT资产");
-            tvTibizhong.setText("提币中(USTD)");
-            tvCoinname.setText("可用余额(USTD)");
+            tvTibizhong.setText("提币中(USDT)");
+            tvCoinname.setText("可用余额(USDT)");
             getMyUstdbalanceData(token);
         }
 

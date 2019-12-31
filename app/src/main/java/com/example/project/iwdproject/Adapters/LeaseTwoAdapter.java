@@ -44,19 +44,23 @@ public class LeaseTwoAdapter extends RecyclerView.Adapter<LeaseTwoAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        final int coinId = mMyBalanceListData.get(i).getId();
-        viewHolder.tvCoinname.setText(mMyBalanceListData.get(i).getName());
-        viewHolder.tvCoinprice.setText(mMyBalanceListData.get(i).getNum());
-        viewHolder.tvPrice.setText("$"+mMyBalanceListData.get(i).getPrice());
-        viewHolder.tvTwoprice.setText("$"+mMyBalanceListData.get(i).getTotal());
-        viewHolder.llAlllayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent LeaseMessageIntent = new Intent(mContext,LeaseMessageActivity.class);
-                LeaseMessageIntent.putExtra("coinId",coinId);
-                mContext.startActivity(LeaseMessageIntent);
-            }
-        });
+        if (i<=1){
+            final int coinId = mMyBalanceListData.get(i).getId();
+            viewHolder.tvCoinname.setText(mMyBalanceListData.get(i).getName());
+            viewHolder.tvCoinprice.setText(mMyBalanceListData.get(i).getNum());
+            viewHolder.tvPrice.setText("$"+mMyBalanceListData.get(i).getPrice());
+            viewHolder.tvTwoprice.setText("$"+mMyBalanceListData.get(i).getTotal());
+            viewHolder.llAlllayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent LeaseMessageIntent = new Intent(mContext,LeaseMessageActivity.class);
+                    LeaseMessageIntent.putExtra("coinId",coinId);
+                    mContext.startActivity(LeaseMessageIntent);
+                }
+            });
+
+        }
+
 
     }
 

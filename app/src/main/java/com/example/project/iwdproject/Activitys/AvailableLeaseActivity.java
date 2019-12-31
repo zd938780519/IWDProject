@@ -1,10 +1,8 @@
 package com.example.project.iwdproject.Activitys;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -56,6 +54,8 @@ public class AvailableLeaseActivity extends BaseActivity {
     TextView tvUsercoin;
     @BindView(R.id.tv_leasetime)
     TextView tvLeasetime;
+    @BindView(R.id.tv_coinname)
+    TextView tvCoinname;
     private AvailableLeaseActivity instance;
     private String token;
     private int coinId;
@@ -72,15 +72,19 @@ public class AvailableLeaseActivity extends BaseActivity {
     }
 
 
-
     private void initView() {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
         tvLeft.setText("租赁");
         coinId = getIntent().getIntExtra("coinId", 2);
+        if (coinId == 1){
+            tvCoinname.setText("可用资产(IWD)");
+        }else if (coinId ==2){
+            tvCoinname.setText("可用资产(USDT)");
+        }
         token = SharedPreferencesUtility.getAccessToken(instance);
-        String time= getDataTime();
-        tvLeasetime.setText("产生租赁时间："+time);
+        String time = getDataTime();
+        tvLeasetime.setText("产生租赁时间：" + time);
         getMybalanceData(token);
     }
 
@@ -126,7 +130,6 @@ public class AvailableLeaseActivity extends BaseActivity {
                     }
                 });
     }
-
 
 
     private String getDataTime() {
