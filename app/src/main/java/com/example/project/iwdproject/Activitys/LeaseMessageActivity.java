@@ -87,13 +87,25 @@ public class LeaseMessageActivity extends BaseActivity {
             tvCoinname.setText("IWD资产");
             tvSever.setText("近七天收益(IWD)");
             tvThree.setText("累计收益(30天/IWD)");
-            llLease.setVisibility(View.GONE);
-        } else {
+            llLease.setVisibility(View.VISIBLE);
+        } else if (coinId == 2){
             tvLeft.setText("无人机租赁(USDT)");
             tvCoinname.setText("USDT资产");
             tvSever.setText("近七天收益(USDT)");
             tvThree.setText("累计收益(30天/USDT)");
             llLease.setVisibility(View.VISIBLE);
+        }else if (coinId == 3){
+            tvLeft.setText("无人机租赁(IWD)");
+            tvCoinname.setText("IWD资产");
+            tvSever.setText("近七天收益(IWD)");
+            tvThree.setText("累计收益(30天/IWD)");
+            llLease.setVisibility(View.GONE);
+        }else if (coinId == 4){
+            tvLeft.setText("无人机租赁(USDT)");
+            tvCoinname.setText("USDT资产");
+            tvSever.setText("近七天收益(USDT)");
+            tvThree.setText("累计收益(30天/USDT)");
+            llLease.setVisibility(View.GONE);
         }
         getMybalanceTwoData(token, coinId);
 

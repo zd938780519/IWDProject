@@ -60,11 +60,12 @@ public class ForgetPassActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.ll_back, R.id.tv_setcode, R.id.ll_next})
+    @OnClick({R.id.ll_back, R.id.tv_setcode, R.id.ll_next,R.id.user_agreement})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
                 finishActivity(instance);
+
                 break;
             case R.id.tv_setcode:   //获得验证码
                 String mPhone = etPhone.getText().toString().trim();
@@ -77,17 +78,25 @@ public class ForgetPassActivity extends BaseActivity {
                 }
                 break;
             case R.id.ll_next:   //设置新密码
-                String mPhone1 = etPhone.getText().toString().trim();
-                String mCode  = etCode.getText().toString().trim();
-                if (checkRegister(instance, mPhone1)) {
-                    if (!mCode.equals("")){
-                        Intent setUpPassWordIntent = new Intent(instance,SetUpNewPassWordActivity.class);
-                        setUpPassWordIntent.putExtra("mPhone",mPhone1);
-                        setUpPassWordIntent.putExtra("mCode",mCode);
-                        startActivity(setUpPassWordIntent);
+                if (check.isChecked() ==true) {
+                    String mPhone1 = etPhone.getText().toString().trim();
+                    String mCode = etCode.getText().toString().trim();
+                    if (checkRegister(instance, mPhone1)) {
+                        if (!mCode.equals("")) {
+                            Intent setUpPassWordIntent = new Intent(instance, SetUpNewPassWordActivity.class);
+                            setUpPassWordIntent.putExtra("mPhone", mPhone1);
+                            setUpPassWordIntent.putExtra("mCode", mCode);
+                            startActivity(setUpPassWordIntent);
+                        }
                     }
+                }else {
+                    ToastLong(instance,"请确定已阅读协议！");
                 }
 
+                break;
+            case R.id.user_agreement:
+                Intent AgreementIntent = new Intent(instance,AgreementActivity.class);
+                startActivity(AgreementIntent);
                 break;
         }
     }

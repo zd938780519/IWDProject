@@ -24,7 +24,6 @@ import butterknife.ButterKnife;
 public class SecoundAdapter extends RecyclerView.Adapter<SecoundAdapter.ViewHolder> {
 
 
-
     private Context mContext;
     private OnRecyclerViewItemDeClickListener OnRecyclerViewItemDeClickListener;
     private List<MyBalanceListBean.DataBean.ListBean> mMyBalanceListData;
@@ -44,6 +43,7 @@ public class SecoundAdapter extends RecyclerView.Adapter<SecoundAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+        final int flag = mMyBalanceListData.get(i).getFlag();
 
             viewHolder.llRentalassets.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -51,11 +51,25 @@ public class SecoundAdapter extends RecyclerView.Adapter<SecoundAdapter.ViewHold
                     if (i==0){
                     Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
                         RentalAssetsIntent.putExtra("postion",i);
+                        RentalAssetsIntent.putExtra("flag",flag);
                     mContext.startActivity(RentalAssetsIntent);
                     }else if (i==1){
                         Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
+                        RentalAssetsIntent.putExtra("flag",flag);
                         RentalAssetsIntent.putExtra("postion",i);
                         mContext.startActivity(RentalAssetsIntent);
+                    }else if (i==2){
+                        Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
+                        RentalAssetsIntent.putExtra("postion",i);
+                        RentalAssetsIntent.putExtra("flag",flag);
+                        mContext.startActivity(RentalAssetsIntent);
+
+                    }else if (i==3){
+                        Intent RentalAssetsIntent = new Intent(mContext, RentalAssetsActivity.class);
+                        RentalAssetsIntent.putExtra("postion",i);
+                        RentalAssetsIntent.putExtra("flag",flag);
+                        mContext.startActivity(RentalAssetsIntent);
+
                     }
                 }
             });

@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.project.iwdproject.Activitys.AgreementActivity;
 import com.example.project.iwdproject.Activitys.LoginActivity;
 import com.example.project.iwdproject.Activitys.LoginPassWordActivity;
 import com.example.project.iwdproject.Activitys.PaypassActivity;
@@ -53,14 +54,14 @@ public class SelfFragment extends BaseFragment {
     RelativeLayout rlLoginpass;
     @BindView(R.id.iv_6)
     ImageView iv6;
-    @BindView(R.id.iv_back6)
-    ImageView ivBack6;
+//    @BindView(R.id.iv_back6)
+//    ImageView ivBack6;
     @BindView(R.id.rl_paypass)
     RelativeLayout rlPaypass;
-    @BindView(R.id.iv_7)
-    ImageView iv7;
-    @BindView(R.id.rl_bindpone)
-    RelativeLayout rlBindpone;
+//    @BindView(R.id.iv_7)
+//    ImageView iv7;
+//    @BindView(R.id.rl_bindpone)
+//    RelativeLayout rlBindpone;
     @BindView(R.id.iv_8)
     ImageView iv8;
     @BindView(R.id.rl_agreement)
@@ -124,7 +125,7 @@ public class SelfFragment extends BaseFragment {
         unbinder1.unbind();
     }
 
-    @OnClick({R.id.rl_pleasecode, R.id.rl_loginpass, R.id.rl_paypass, R.id.rl_bindpone,
+    @OnClick({R.id.rl_pleasecode, R.id.rl_loginpass, R.id.rl_paypass,
             R.id.rl_agreement, R.id.rl_update, R.id.rl_realname, R.id.ll_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -142,9 +143,11 @@ public class SelfFragment extends BaseFragment {
                 Intent mPayPassIntent = new Intent(instance, PaypassActivity.class);
                 startActivity(mPayPassIntent);
                 break;
-            case R.id.rl_bindpone:
-                break;
+//            case R.id.rl_bindpone:
+//                break;
             case R.id.rl_agreement:
+                Intent AgreementIntent = new Intent(instance,AgreementActivity.class);
+                startActivity(AgreementIntent);
                 break;
             case R.id.rl_update:
                 break;
@@ -163,6 +166,7 @@ public class SelfFragment extends BaseFragment {
                 break;
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -25,13 +25,13 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/item_offset_20sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/item_offset_15dp"
-                android:layout_alignParentRight="true"
-                android:background="@mipmap/icon_sys_1"/>
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="@dimen/item_offset_15dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:background="@mipmap/icon_sys_1"/>-->
 
         </RelativeLayout>
 

@@ -60,10 +60,15 @@ public class RentalAssetsActivity extends BaseActivity {
     TextView tvCoinname;
     @BindView(R.id.tv_tibizhong)
     TextView tvTibizhong;
+    @BindView(R.id.ll_cointype)
+    LinearLayout llCointype;
+    @BindView(R.id.ll_caozuo)
+    LinearLayout llCaozuo;
     private RentalAssetsActivity instance;
     private BalanceBean.DataBean mBalanceData;
     private UsdtBalanceBean.DataBean mUsdtBalanceData;
     private int postion;
+    private int flag;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,6 +87,7 @@ public class RentalAssetsActivity extends BaseActivity {
         tvLeft.setVisibility(View.VISIBLE);
 
         postion = getIntent().getIntExtra("postion", 0);
+        flag = getIntent().getIntExtra("flag", 0);
         String token = SharedPreferencesUtility.getAccessToken(instance);
         if (postion == 0) {
             tvLeft.setText("IDW资产");
@@ -91,12 +97,32 @@ public class RentalAssetsActivity extends BaseActivity {
             getMybalanceData(token);
 
 
-        } else {
+        } else if (postion==1){
             tvLeft.setText("USDT资产");
             tvUsername.setText("USDT资产");
             tvTibizhong.setText("提币中(USTD)");
             tvCoinname.setText("可用余额(USTD)");
             getMyUstdbalanceData(token);
+        }else if (postion ==2){
+            tvLeft.setText("IDW资产");
+            tvUsername.setText("IDW资产");
+            tvTibizhong.setText("提币中(IDW)");
+            tvCoinname.setText("可用余额(IWD)");
+            getMybalanceData(token);
+        }else if (postion ==3){
+            tvLeft.setText("USDT资产");
+            tvUsername.setText("USDT资产");
+            tvTibizhong.setText("提币中(USTD)");
+            tvCoinname.setText("可用余额(USTD)");
+            getMyUstdbalanceData(token);
+        }
+
+        if (flag ==1){
+            llCointype.setVisibility(View.GONE);
+            llCaozuo.setVisibility(View.GONE);
+        }else if (flag ==2){
+            llCointype.setVisibility(View.VISIBLE);
+            llCaozuo.setVisibility(View.VISIBLE);
         }
 
     }
@@ -214,7 +240,7 @@ public class RentalAssetsActivity extends BaseActivity {
                 startActivity(PunchIntent);
                 break;
             case R.id.tibi:  //提币
-                ToastLong(instance,"此功能暂未开放，敬请期待！");
+                ToastLong(instance, "此功能暂未开放，敬请期待！");
 //                Intent coinIntent = new Intent(instance, CoinsActivity.class);
 //                startActivity(coinIntent);
                 break;

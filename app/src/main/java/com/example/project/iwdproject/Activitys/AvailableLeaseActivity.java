@@ -1,7 +1,10 @@
 package com.example.project.iwdproject.Activitys;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -21,6 +24,9 @@ import com.mchsdk.paysdk.mylibrary.BaseActivity;
 import com.mchsdk.paysdk.retrofitutils.result.HttpResponseException;
 import com.mchsdk.paysdk.retrofitutils.rxjava.observable.SchedulerTransformer;
 import com.mchsdk.paysdk.retrofitutils.rxjava.observer.BaseObserver;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +54,8 @@ public class AvailableLeaseActivity extends BaseActivity {
     EditText etLeasenum;
     @BindView(R.id.tv_usercoin)
     TextView tvUsercoin;
+    @BindView(R.id.tv_leasetime)
+    TextView tvLeasetime;
     private AvailableLeaseActivity instance;
     private String token;
     private int coinId;
@@ -64,12 +72,15 @@ public class AvailableLeaseActivity extends BaseActivity {
     }
 
 
+
     private void initView() {
         rlBack.setVisibility(View.VISIBLE);
         tvLeft.setVisibility(View.VISIBLE);
         tvLeft.setText("租赁");
-        coinId = getIntent().getIntExtra("coinId",2);
+        coinId = getIntent().getIntExtra("coinId", 2);
         token = SharedPreferencesUtility.getAccessToken(instance);
+        String time= getDataTime();
+        tvLeasetime.setText("产生租赁时间："+time);
         getMybalanceData(token);
     }
 
@@ -97,7 +108,7 @@ public class AvailableLeaseActivity extends BaseActivity {
                             if (mActiveUsdtBean.getCode() == 10086) {
                                 Toast.makeText(instance, mActiveUsdtBean.getMessage(), Toast.LENGTH_SHORT).show();
 
-                                tvUsercoin.setText(mActiveUsdtBean.getData().getUsdt()+"");
+                                tvUsercoin.setText(mActiveUsdtBean.getData().getUsdt() + "");
                             } else {
 
                                 Toast.makeText(instance, mActiveUsdtBean.getMessage(), Toast.LENGTH_SHORT).show();
@@ -117,6 +128,17 @@ public class AvailableLeaseActivity extends BaseActivity {
     }
 
 
+
+    private String getDataTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");// HH:mm:ss
+        //获取当前时间
+        Date date = new Date(System.currentTimeMillis());
+//        time1.setText("Date获取当前日期时间"+simpleDateFormat.format(date));
+        return simpleDateFormat.format(date);
+
+    }
+
+
     /**
      * 租赁
      */
@@ -124,7 +146,7 @@ public class AvailableLeaseActivity extends BaseActivity {
 //        Log.e("TAG","token====="+token);
         String application = "application/json";
         RetrofitHttpUtil.getApiService()
-                .getLease(num, coinId,token, application)
+                .getLease(num, coinId, token, application)
                 .compose(this.<LeaseBean>bindToLifecycle())
                 .compose(SchedulerTransformer.<LeaseBean>transformer())
                 .doFinally(new Action() {
@@ -161,7 +183,7 @@ public class AvailableLeaseActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_lease})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back, R.id.ll_lease, R.id.user_agreement})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -173,10 +195,18 @@ public class AvailableLeaseActivity extends BaseActivity {
                 break;
             case R.id.ll_lease:   //租赁
                 String mLeasenum = etLeasenum.getText().toString().trim();
-                if (!mLeasenum.equals("")) {
-                    getMybalanceTwoData(mLeasenum);
+                if (check.isChecked() == true) {
+                    if (!mLeasenum.equals("")) {
+                        getMybalanceTwoData(mLeasenum);
+                    }
+                } else {
+                    ToastLong(instance, "请确定已阅读协议！");
                 }
 
+                break;
+            case R.id.user_agreement:
+                Intent AgreementIntent = new Intent(instance, AgreementActivity.class);
+                startActivity(AgreementIntent);
                 break;
         }
     }

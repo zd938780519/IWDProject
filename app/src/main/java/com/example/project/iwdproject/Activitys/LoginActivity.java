@@ -77,25 +77,32 @@ public class LoginActivity extends BaseActivity {
                 showOrHide(etPassword, ivShow);
                 break;
             case R.id.user_agreement:
+                Intent AgreementIntent = new Intent(instance,AgreementActivity.class);
+                startActivity(AgreementIntent);
                 break;
             case R.id.ll_login:
                 String mPhone = etPhone.getText().toString().trim();
                 String mPassword = etPassword.getText().toString().trim();
-                if (type ==1){
-                    if (checkRegister(instance, mPhone)) {
+                if (check.isChecked() ==true){
+                    if (type ==1){
+                        if (checkRegister(instance, mPhone)) {
+                            if (!mPassword.equals("")) {
+                                getLogin(mPhone, mPassword);
+                            } else {
+                                ToastLong(instance, "密码不能为空！");
+                            }
+                        }
+                    }else if (type==2){
                         if (!mPassword.equals("")) {
-                            getLogin(mPhone, mPassword);
+                            getLoginEmailData(mPhone, mPassword);
                         } else {
                             ToastLong(instance, "密码不能为空！");
                         }
                     }
-                }else if (type==2){
-                    if (!mPassword.equals("")) {
-                        getLoginEmailData(mPhone, mPassword);
-                    } else {
-                        ToastLong(instance, "密码不能为空！");
-                    }
+                }else {
+                    ToastLong(instance,"请确定已阅读协议！");
                 }
+
 
 //
                 break;

@@ -1,5 +1,6 @@
 package com.example.project.iwdproject.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.InputType;
@@ -77,7 +78,7 @@ public class RegisterActivity extends BaseActivity {
     }
 
     @OnClick({R.id.ll_back, R.id.et_phone, R.id.tv_setcode,
-            R.id.ll_register, R.id.iv_show, R.id.iv_showt,R.id.tv_phone,R.id.tv_emal})
+            R.id.ll_register, R.id.iv_show, R.id.iv_showt,R.id.tv_phone,R.id.tv_emal,R.id.user_agreement})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
@@ -113,13 +114,33 @@ public class RegisterActivity extends BaseActivity {
                 String mCode = etCode.getText().toString().trim();
                 String mInvitationCode = invitationCode.getText().toString().trim();
                 Log.e("TAG","email==="+mPhone1);
-                if (type ==1){   //手机号注册
-                    if (checkRegister(instance, mPhone1)) {
+                if (check.isChecked() ==true) {
+                    if (type == 1) {   //手机号注册
+                        if (checkRegister(instance, mPhone1)) {
+                            if (!mPassword.equals("") && !mNextpassword.equals("")) {
+                                if (mPassword.equals(mNextpassword)) {
+                                    if (!mCode.equals("")) {
+                                        if (!mInvitationCode.equals("")) {
+                                            getRegister(mPhone1, mPassword, mCode, mInvitationCode);
+                                        } else {
+                                            ToastLong(instance, "邀请码不能为空！");
+                                        }
+                                    } else {
+                                        ToastLong(instance, "验证码不能为空！");
+                                    }
+                                } else {
+                                    ToastLong(instance, "确认密码是否相同！");
+                                }
+                            } else {
+                                ToastLong(instance, "密码不能为空！");
+                            }
+                        }
+                    } else if (type == 2) {   //邮箱注册
                         if (!mPassword.equals("") && !mNextpassword.equals("")) {
                             if (mPassword.equals(mNextpassword)) {
                                 if (!mCode.equals("")) {
                                     if (!mInvitationCode.equals("")) {
-                                        getRegister(mPhone1, mPassword, mCode, mInvitationCode);
+                                        getEmailRegister(mPhone1, mPassword, mCode, mInvitationCode);
                                     } else {
                                         ToastLong(instance, "邀请码不能为空！");
                                     }
@@ -133,26 +154,9 @@ public class RegisterActivity extends BaseActivity {
                             ToastLong(instance, "密码不能为空！");
                         }
                     }
-                }else if (type ==2){   //邮箱注册
-                    if (!mPassword.equals("") && !mNextpassword.equals("")) {
-                        if (mPassword.equals(mNextpassword)) {
-                            if (!mCode.equals("")) {
-                                if (!mInvitationCode.equals("")) {
-                                    getEmailRegister(mPhone1, mPassword, mCode, mInvitationCode);
-                                } else {
-                                    ToastLong(instance, "邀请码不能为空！");
-                                }
-                            } else {
-                                ToastLong(instance, "验证码不能为空！");
-                            }
-                        } else {
-                            ToastLong(instance, "确认密码是否相同！");
-                        }
-                    } else {
-                        ToastLong(instance, "密码不能为空！");
-                    }
+                }else{
+                    ToastLong(instance,"请确定已阅读协议！");
                 }
-
 
                 break;
             case R.id.iv_show:   //隐藏显示
@@ -174,6 +178,10 @@ public class RegisterActivity extends BaseActivity {
                 etPhone.setHint("邮箱");
                 tvPhone.setTextColor(getResources().getColorStateList(R.color.color_888888));
                 tvEmal.setTextColor(getResources().getColorStateList(R.color.white));
+                break;
+            case R.id.user_agreement:
+                Intent AgreementIntent = new Intent(instance,AgreementActivity.class);
+                startActivity(AgreementIntent);
                 break;
         }
     }

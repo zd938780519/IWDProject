@@ -369,57 +369,57 @@
 
 
 
-                    <RelativeLayout
-                        android:id="@+id/rl_bindpone"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/item_offset_40dp"
-                        android:background="@color/color_131e31">
-
-                        <ImageView
-                            android:id="@+id/iv_7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="@dimen/item_offset_15dp"
-                            android:background="@mipmap/icon_bd_6"/>
-
-
-                        <TextView
-                            android:layout_toRightOf="@+id/iv_7"
-                            android:layout_marginLeft="@dimen/item_offset_11dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="手机绑定"
-
-                            android:textColor="@color/white"
-                            android:layout_centerVertical="true"
-                            android:textSize="@dimen/item_offset_16sp" />
-
-
-
+                    <!--<RelativeLayout-->
+                        <!--android:id="@+id/rl_bindpone"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="@dimen/item_offset_40dp"-->
+                        <!--android:background="@color/color_131e31">-->
 
                         <!--<ImageView-->
-                            <!--android:id="@+id/iv_back6"-->
+                            <!--android:id="@+id/iv_7"-->
                             <!--android:layout_width="wrap_content"-->
                             <!--android:layout_height="wrap_content"-->
                             <!--android:layout_centerVertical="true"-->
+                            <!--android:layout_marginLeft="@dimen/item_offset_15dp"-->
+                            <!--android:background="@mipmap/icon_bd_6"/>-->
+
+
+                        <!--<TextView-->
+                            <!--android:layout_toRightOf="@+id/iv_7"-->
+                            <!--android:layout_marginLeft="@dimen/item_offset_11dp"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="手机绑定"-->
+
+                            <!--android:textColor="@color/white"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:textSize="@dimen/item_offset_16sp" />-->
+
+
+
+
+                        <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/iv_back6"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_alignParentRight="true"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_marginRight="@dimen/item_offset_15dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:background="@mipmap/icon_jr_3"/>&ndash;&gt;-->
+
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="+86154***2654"-->
                             <!--android:layout_alignParentRight="true"-->
                             <!--android:layout_marginRight="@dimen/item_offset_15dp"-->
-                            <!--android:background="@mipmap/icon_jr_3"/>-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:textSize="@dimen/item_offset_13sp" />-->
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+86154***2654"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/item_offset_15dp"
-                            android:textColor="@color/white"
-                            android:layout_centerVertical="true"
-                            android:textSize="@dimen/item_offset_13sp" />
-
-
-                    </RelativeLayout>
+                    <!--</RelativeLayout>-->
 
 
 

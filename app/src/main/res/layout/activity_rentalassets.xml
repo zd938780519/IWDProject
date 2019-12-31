@@ -159,6 +159,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_cointype"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_offset_30dp"
@@ -245,9 +246,11 @@
 
 
     <LinearLayout
+        android:id="@+id/ll_caozuo"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="77dp"
+        android:visibility="visible"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:background="@color/color_131e31">

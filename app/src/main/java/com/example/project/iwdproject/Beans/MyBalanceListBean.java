@@ -7,7 +7,7 @@ public class MyBalanceListBean {
     /**
      * code : 10086
      * message : 获取成功
-     * data : {"total_num":109.95989499999999,"list":[{"id":1,"name":"IWD","num":"199.7999","price":"0.05","change":"0","total":"9.989995"},{"id":2,"name":"USDT","num":"99.9699","price":"1.00","change":"0","total":"99.9699"}]}
+     * data : {"total_num":"0.00","list":[{"id":1,"name":"IWD","num":"0.00","price":"1.02","change":"2","total":"0.00","flag":2,"time":""},{"id":2,"name":"USDT","num":"0.00","price":"1.00","change":"0","total":"0.00","flag":2,"time":""},{"id":3,"name":"IWD锁仓","num":"0.00","price":"1.02","change":"2","total":"0.00","flag":1,"time":"2020-02-01 01:00:00"},{"id":4,"name":"USDT锁仓","num":"0.00","price":"1.00","change":"0","total":"0.00","flag":1,"time":"2020-02-01 01:00:00"}]}
      */
 
     private int code;
@@ -40,18 +40,18 @@ public class MyBalanceListBean {
 
     public static class DataBean {
         /**
-         * total_num : 109.95989499999999
-         * list : [{"id":1,"name":"IWD","num":"199.7999","price":"0.05","change":"0","total":"9.989995"},{"id":2,"name":"USDT","num":"99.9699","price":"1.00","change":"0","total":"99.9699"}]
+         * total_num : 0.00
+         * list : [{"id":1,"name":"IWD","num":"0.00","price":"1.02","change":"2","total":"0.00","flag":2,"time":""},{"id":2,"name":"USDT","num":"0.00","price":"1.00","change":"0","total":"0.00","flag":2,"time":""},{"id":3,"name":"IWD锁仓","num":"0.00","price":"1.02","change":"2","total":"0.00","flag":1,"time":"2020-02-01 01:00:00"},{"id":4,"name":"USDT锁仓","num":"0.00","price":"1.00","change":"0","total":"0.00","flag":1,"time":"2020-02-01 01:00:00"}]
          */
 
-        private double total_num;
+        private String total_num;
         private List<ListBean> list;
 
-        public double getTotal_num() {
+        public String getTotal_num() {
             return total_num;
         }
 
-        public void setTotal_num(double total_num) {
+        public void setTotal_num(String total_num) {
             this.total_num = total_num;
         }
 
@@ -67,10 +67,12 @@ public class MyBalanceListBean {
             /**
              * id : 1
              * name : IWD
-             * num : 199.7999
-             * price : 0.05
-             * change : 0
-             * total : 9.989995
+             * num : 0.00
+             * price : 1.02
+             * change : 2
+             * total : 0.00
+             * flag : 2
+             * time :
              */
 
             private int id;
@@ -79,6 +81,8 @@ public class MyBalanceListBean {
             private String price;
             private String change;
             private String total;
+            private int flag;
+            private String time;
 
             public int getId() {
                 return id;
@@ -126,6 +130,22 @@ public class MyBalanceListBean {
 
             public void setTotal(String total) {
                 this.total = total;
+            }
+
+            public int getFlag() {
+                return flag;
+            }
+
+            public void setFlag(int flag) {
+                this.flag = flag;
+            }
+
+            public String getTime() {
+                return time;
+            }
+
+            public void setTime(String time) {
+                this.time = time;
             }
         }
     }

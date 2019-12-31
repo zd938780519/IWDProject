@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.example.project.iwdproject.MainActivity;
 import com.example.project.iwdproject.R;
+import com.example.project.iwdproject.Utils.EyesUtils;
 import com.example.project.iwdproject.Utils.SharedPreferencesUtility;
 import com.mchsdk.paysdk.mylibrary.BaseActivity;
 
@@ -41,6 +42,7 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         instance = this;
+        EyesUtils.setImmersionStateMode(instance);  //实现沉浸
         ButterKnife.bind(this);
         addActivity(instance);
         initData();

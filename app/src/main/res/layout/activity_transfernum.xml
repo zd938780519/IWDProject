@@ -89,7 +89,7 @@
             android:id="@+id/tv_coinname1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="转账数量(USTD)"
+            android:text="转账数量(USDT)"
             android:textColor="@color/color_888888"
             android:layout_marginLeft="@dimen/item_offset_16dp"
             android:textSize="@dimen/item_offset_14sp"
