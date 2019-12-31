@@ -1,6 +1,7 @@
 package com.example.project.iwdproject.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.project.iwdproject.Activitys.ExchangeActivity;
 import com.example.project.iwdproject.R;
 
 import butterknife.BindView;
@@ -39,7 +41,10 @@ public class FindTwoFragment extends BaseFragment {
     RelativeLayout rlTitle;
     @BindView(R.id.titleBar)
     LinearLayout titleBar;
-    Unbinder unbinder;
+
+    @BindView(R.id.iv_exchange)
+    ImageView ivExchange;
+
     private Context instance;
 
     public static FindTwoFragment newInstance(String title) {
@@ -69,14 +74,14 @@ public class FindTwoFragment extends BaseFragment {
     }
 
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
 
+
     }
 
-    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back})
+    @OnClick({R.id.iv_left, R.id.tv_left, R.id.rl_back,R.id.iv_exchange})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_left:
@@ -85,6 +90,12 @@ public class FindTwoFragment extends BaseFragment {
                 break;
             case R.id.rl_back:
                 break;
+            case R.id.iv_exchange:   //兑换
+                Intent ExchangeIntent = new Intent(instance,ExchangeActivity.class);
+                startActivity(ExchangeIntent);
+                break;
         }
     }
+
+
 }

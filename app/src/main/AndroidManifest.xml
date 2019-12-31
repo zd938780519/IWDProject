@@ -102,6 +102,11 @@
             android:name=".Activitys.LeaseMessageActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".Activitys.ExchangeActivity"
+            android:screenOrientation="portrait" />
+
+
 
         <activity
             android:name=".Activitys.CoinLeaseActivity"
